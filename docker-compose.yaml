@@ -1,0 +1,18 @@
+services:
+  mongodb:
+    image: mongo:7
+    container_name: storage-mongodb
+    restart: unless-stopped
+    command: ["mongod", "--config", "/etc/mongod.conf"]
+    environment:
+      MONGO_INITDB_DATABASE: myapp
+    volumes:
+      - ./data/mongodb:/var/lib/mongodb
+      - ./data/logs:/var/log/mongodb
+      - ./mongod.conf:/etc/mongod.conf:ro
+      - ./init-scripts:/docker-entrypoint-initdb.d:ro
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodb-data:
