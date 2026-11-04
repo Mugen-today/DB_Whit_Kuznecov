@@ -1,0 +1,105 @@
+name: gis-mongodb
+services:
+  storage:
+    image: mongo:8.0
+    command: [mongod, --config, /etc/mongo/mongod.conf, --wiredTigerCacheSizeGB, '1.5']
+    restart: unless-stopped
+    mem_limit: 4g
+    memswap_limit: 4g
+    mem_reservation: 2g
+    cpus: 2.0
+    stop_grace_period: 120s
+    ulimits:
+      nofile: {soft: 64000, hard: 64000}
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:?Run python scripts/manage.py init}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:?Restore or generate credentials}
+      MONGO_INITDB_DATABASE: Schema
+      INGEST_PASSWORD: ${INGEST_PASSWORD:?Missing password}
+      PROCESSOR_PASSWORD: ${PROCESSOR_PASSWORD:?Missing password}
+      READER_PASSWORD: ${READER_PASSWORD:?Missing password}
+      USER_PASSWORD: ${USER_PASSWORD:?Run manage.py configure}
+      GUEST_PASSWORD: ${GUEST_PASSWORD:?Run manage.py configure}
+    volumes:
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
+      - ./storage/config/mongod.conf:/etc/mongo/mongod.conf:ro
+      - ./storage/schema:/opt/schema:ro
+      - ./storage/init:/opt/init:ro
+      - ./storage/init/bootstrap.js:/docker-entrypoint-initdb.d/00-bootstrap.js:ro
+      - ./storage/scripts:/opt/storage:ro
+      - ./storage/migrations:/opt/migrations:ro
+    networks: [storage_net]
+    healthcheck:
+      test: [CMD, mongosh, --quiet, /opt/storage/health.js]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
+    logging:
+      driver: json-file
+      options: {max-size: '10m', max-file: '3'}
+  backend:
+    profiles: [connections]
+    build: ./backend
+    restart: unless-stopped
+    depends_on:
+      storage: {condition: service_healthy}
+    environment:
+      STORAGE_SCHEMA_PATH: /opt/schema/model.json
+      MONGO_HOST: storage
+      MONGO_PORT: '27017'
+      MONGO_DATABASE: Schema
+      INGEST_PASSWORD: ${INGEST_PASSWORD:?Missing password}
+      PROCESSOR_PASSWORD: ${PROCESSOR_PASSWORD:?Missing password}
+      READER_PASSWORD: ${READER_PASSWORD:?Missing password}
+      USER_PASSWORD: ${USER_PASSWORD:?Run manage.py configure}
+      GUEST_PASSWORD: ${GUEST_PASSWORD:?Run manage.py configure}
+    volumes:
+      - ./storage/schema:/opt/schema:ro
+    networks: [storage_net, app_net]
+    expose: ['8000']
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 0.5
+    pids_limit: 64
+    read_only: true
+    tmpfs: ['/tmp:size=16m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+    healthcheck:
+      test: [CMD, python, -c, "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health/ready', timeout=40).close()"]
+      interval: 30s
+      timeout: 45s
+      retries: 3
+      start_period: 20s
+    logging:
+      driver: json-file
+      options: {max-size: '5m', max-file: '2'}
+  dashboard:
+    profiles: [planned]
+    build: ./dashboard
+    environment:
+      BACKEND_URL: http://backend:8000
+    networks: [app_net]
+    expose: ['8501']
+    mem_limit: 256m
+    memswap_limit: 256m
+    cpus: 0.5
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+volumes:
+  mongo_data:
+    external: false
+    name: ${STORAGE_DATA_VOLUME:?Run manage.py init}
+  mongo_config:
+    external: false
+    name: ${STORAGE_CONFIG_VOLUME:?Run manage.py init}
+networks:
+  storage_net:
+    driver: bridge
+    internal: true
+  app_net:
+    driver: bridge
+    internal: false
