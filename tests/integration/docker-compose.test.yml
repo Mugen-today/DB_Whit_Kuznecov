@@ -1,0 +1,37 @@
+services:
+  storage:
+    volumes: ['./tests/integration:/opt/test:ro']
+  probe:
+    image: mongo:8.0
+    profiles: [test]
+    entrypoint: [mongosh, --quiet, --nodb, /opt/test/network.js]
+    environment:
+      HOME: /tmp
+      MONGOSH_DISABLE_TELEMETRY: '1'
+      STORAGE_TEST_HOST: storage
+      INGEST_PASSWORD: ${INGEST_PASSWORD:?Missing password}
+      PROCESSOR_PASSWORD: ${PROCESSOR_PASSWORD:?Missing password}
+      READER_PASSWORD: ${READER_PASSWORD:?Missing password}
+      USER_PASSWORD: ${USER_PASSWORD:?Missing password}
+      GUEST_PASSWORD: ${GUEST_PASSWORD:?Missing password}
+      TEST_WRITES: ${TEST_WRITES:-0}
+    volumes: ['./tests/integration:/opt/test:ro']
+    networks: [storage_net]
+    mem_limit: 512m
+    memswap_limit: 512m
+    cpus: 0.5
+    read_only: true
+    tmpfs: ['/tmp:size=32m,mode=1777']
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]
+  http-probe:
+    image: python:3.12-slim
+    profiles: [test]
+    entrypoint: [python, /tests/http_probe.py]
+    volumes: ['./tests/integration:/tests:ro']
+    networks: [app_net]
+    mem_limit: 128m
+    memswap_limit: 128m
+    read_only: true
+    cap_drop: [ALL]
+    security_opt: [no-new-privileges:true]

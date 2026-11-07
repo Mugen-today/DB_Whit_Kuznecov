@@ -1,0 +1,51 @@
+name: Project checks
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  portable:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ['3.10', '3.12']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python scripts/manage.py test
+      - name: Check source syntax and distribution files
+        run: python scripts/check_project.py
+  docker:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/manage.py init
+      - run: python scripts/manage.py config --connections --local-api --emergency
+      - name: Clean deployment through the public CLI
+        run: |
+          python scripts/manage.py up --connections --local-api
+          python scripts/manage.py status
+          python scripts/manage.py verify
+          python scripts/manage.py network-test
+          curl --fail --silent --show-error http://127.0.0.1:8000/health/ready
+      - name: Remove the fresh CI deployment
+        if: always()
+        run: |
+          if [ -f .env ]; then
+            docker compose --profile connections down --volumes
+          fi
+      - name: Full integration twice on independent volumes
+        run: |
+          python scripts/manage.py integration
+          python scripts/manage.py integration
