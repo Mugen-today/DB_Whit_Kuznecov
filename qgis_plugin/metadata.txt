@@ -1,0 +1,11 @@
+[general]
+name=GIS MongoDB Backend
+qgisMinimumVersion=3.28
+qgisMaximumVersion=3.99
+version=0.1.0
+author=GIS-MongoDB project
+description=Load and edit MongoDB Geodata points through the project backend
+about=Authenticated HTTP connection, memory vector provider, optimistic revisions and GeoPackage export.
+category=Database
+experimental=True
+hasProcessingProvider=False
