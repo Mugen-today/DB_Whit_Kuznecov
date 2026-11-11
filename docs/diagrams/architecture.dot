@@ -1,0 +1,10 @@
+digraph G {graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.5"]; node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#93c5fd",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.12"]; edge [fontname="DejaVu Sans",fontsize=10,color="#64748b"];rankdir=TB;
+Q[label="QGIS Plugin\nНастольный клиент"]; D[label="Dashboard\nБраузер · localhost:8501"];
+B[label="Backend · localhost:8000\nАвторизация → проверка → преобразование",fillcolor="#dbeafe"];
+M[label="Storage · MongoDB Schema\n17 коллекций + cases · rs0",fillcolor="#dcfce7",color="#86efac"];
+J[label="Дисковый кеш импорта\nGPKG + задания SQLite",fillcolor="#f3e8ff"];
+S[label="A.xlsx + B.json\nОдноразовый excel-import"];
+V[label="mongo_data / mongo_config\nРабочие Docker volumes",fillcolor="#f1f5f9"];
+Q->B[label="HTTP + API-токен"];D->B[label="HTTP + сервисный токен"];B->Q[label="страницы / подтверждения"];B->D[label="данные / результаты"];B->M[label="общий PyMongo-коннектор"];B->J[label="пакеты + прогресс"];S->M[label="историческая инициализация"];M->V[label="постоянное хранение"];{rank=same;Q;D;} {rank=same;M;J;}
+
+}

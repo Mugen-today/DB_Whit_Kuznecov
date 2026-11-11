@@ -1,0 +1,9 @@
+{
+  "filename": "test_datasetA.xlsx",
+  "sha256": "a576414b4d5157c3a209edf94be89c8c2e6de102d9cc20ad0c842c4856fd7fce",
+  "namespace": "test-dataset-a",
+  "part_b": {
+    "filename": "testB_normalized.json",
+    "sha256": "da7db58f75deac2aa51fd59626aec3d595d4f44656fc9a3777fe41deb1d46f1d"
+  }
+}

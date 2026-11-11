@@ -1,0 +1,6 @@
+digraph G {graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.5"]; node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#93c5fd",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.12"]; edge [fontname="DejaVu Sans",fontsize=10,color="#64748b"];rankdir=TB;
+F[label="data/manifest.json + A.xlsx + B.json"]; H[label="Проверить SHA256 и маркеры cases",shape=diamond]; K[label="Маркер есть\nпропустить повторную загрузку"]; P[label="seed_excel / seed_b\nисходные строки → cases\nнормализованные документы → 17 коллекций"];
+R[label="insert-only: существующие _id не обновляются"]; G[label="geospatial-index.js\nвосстановить пустую geometry из координат\nпроверить частичный 2dsphere индекс"]; T[label="MongoDB: данные готовы для API",fillcolor="#dcfce7"];
+F->H;H->K[label="есть"];H->P[label="нет"];P->R;R->G;K->G;G->T;
+
+}

@@ -1,0 +1,1021 @@
+{
+  "as_of": "2026-11-10T00:00:00Z",
+  "executed": 100,
+  "independently_verified": 100,
+  "checks": [
+    {
+      "number": 1,
+      "executed": true,
+      "verified": true,
+      "result_count": 10,
+      "elapsed_ms": 13,
+      "adapted": true
+    },
+    {
+      "number": 2,
+      "executed": true,
+      "verified": true,
+      "result_count": 2,
+      "elapsed_ms": 5,
+      "adapted": false
+    },
+    {
+      "number": 3,
+      "executed": true,
+      "verified": true,
+      "result_count": 11,
+      "elapsed_ms": 4,
+      "adapted": false
+    },
+    {
+      "number": 4,
+      "executed": true,
+      "verified": true,
+      "result_count": 4,
+      "elapsed_ms": 3,
+      "adapted": false
+    },
+    {
+      "number": 5,
+      "executed": true,
+      "verified": true,
+      "result_count": 3,
+      "elapsed_ms": 4,
+      "adapted": false
+    },
+    {
+      "number": 6,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 2,
+      "adapted": false
+    },
+    {
+      "number": 7,
+      "executed": true,
+      "verified": true,
+      "result_count": 10,
+      "elapsed_ms": 6,
+      "adapted": false
+    },
+    {
+      "number": 8,
+      "executed": true,
+      "verified": true,
+      "result_count": 41938,
+      "value": 41938,
+      "elapsed_ms": 14,
+      "adapted": true
+    },
+    {
+      "number": 9,
+      "executed": true,
+      "verified": true,
+      "result_count": 41938,
+      "value": 41938,
+      "elapsed_ms": 14,
+      "adapted": false
+    },
+    {
+      "number": 10,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "value": 4276,
+      "elapsed_ms": 4,
+      "adapted": false
+    },
+    {
+      "number": 11,
+      "executed": true,
+      "verified": true,
+      "result_count": 10737,
+      "elapsed_ms": 179,
+      "adapted": true
+    },
+    {
+      "number": 12,
+      "executed": true,
+      "verified": true,
+      "result_count": 12844,
+      "elapsed_ms": 274,
+      "adapted": true
+    },
+    {
+      "number": 13,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 21,
+      "adapted": true
+    },
+    {
+      "number": 14,
+      "executed": true,
+      "verified": true,
+      "result_count": 37662,
+      "elapsed_ms": 467,
+      "adapted": true
+    },
+    {
+      "number": 15,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 5,
+      "adapted": false
+    },
+    {
+      "number": 16,
+      "executed": true,
+      "verified": true,
+      "result_count": 561,
+      "elapsed_ms": 11,
+      "adapted": false
+    },
+    {
+      "number": 17,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 6,
+      "adapted": false
+    },
+    {
+      "number": 18,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 2,
+      "adapted": true
+    },
+    {
+      "number": 19,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "elapsed_ms": 66,
+      "adapted": true
+    },
+    {
+      "number": 20,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 10,
+      "adapted": true
+    },
+    {
+      "number": 21,
+      "executed": true,
+      "verified": true,
+      "result_count": 526,
+      "elapsed_ms": 46,
+      "adapted": true
+    },
+    {
+      "number": 22,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 28,
+      "adapted": true
+    },
+    {
+      "number": 23,
+      "executed": true,
+      "verified": true,
+      "result_count": 37662,
+      "elapsed_ms": 1436,
+      "adapted": true
+    },
+    {
+      "number": 24,
+      "executed": true,
+      "verified": true,
+      "result_count": 37662,
+      "elapsed_ms": 1529,
+      "adapted": true
+    },
+    {
+      "number": 25,
+      "executed": true,
+      "verified": true,
+      "result_count": 2,
+      "aggregate_summary": [
+        {
+          "_id": "Мужчина",
+          "count": 18842
+        },
+        {
+          "_id": "Женщина",
+          "count": 18820
+        }
+      ],
+      "elapsed_ms": 1227,
+      "adapted": true
+    },
+    {
+      "number": 26,
+      "executed": true,
+      "verified": true,
+      "result_count": 11,
+      "elapsed_ms": 1149,
+      "adapted": true
+    },
+    {
+      "number": 27,
+      "executed": true,
+      "verified": true,
+      "result_count": 4,
+      "elapsed_ms": 5,
+      "adapted": false
+    },
+    {
+      "number": 28,
+      "executed": true,
+      "verified": true,
+      "result_count": 3,
+      "elapsed_ms": 2,
+      "adapted": false
+    },
+    {
+      "number": 29,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 1,
+      "adapted": false
+    },
+    {
+      "number": 30,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 2936,
+      "adapted": true
+    },
+    {
+      "number": 31,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 2570,
+      "adapted": true
+    },
+    {
+      "number": 32,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 188,
+      "adapted": false
+    },
+    {
+      "number": 33,
+      "executed": true,
+      "verified": true,
+      "comparison": "Age order and source membership; ties have no specified order",
+      "result_count": 10,
+      "elapsed_ms": 21,
+      "adapted": true
+    },
+    {
+      "number": 34,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "elapsed_ms": 48,
+      "adapted": true
+    },
+    {
+      "number": 35,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "min_date": "2018-01-09 00:00:00",
+          "max_date": "2024-10-22 00:00:00"
+        }
+      ],
+      "elapsed_ms": 23,
+      "adapted": true
+    },
+    {
+      "number": 36,
+      "executed": true,
+      "verified": true,
+      "result_count": 41938,
+      "elapsed_ms": 522,
+      "adapted": true
+    },
+    {
+      "number": 37,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null
+        }
+      ],
+      "elapsed_ms": 391,
+      "adapted": true
+    },
+    {
+      "number": 38,
+      "executed": true,
+      "verified": true,
+      "result_count": 21,
+      "elapsed_ms": 2244,
+      "adapted": true
+    },
+    {
+      "number": 39,
+      "executed": true,
+      "verified": true,
+      "result_count": 2575,
+      "elapsed_ms": 238,
+      "adapted": false
+    },
+    {
+      "number": 40,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 144,
+      "adapted": false
+    },
+    {
+      "number": 41,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 7,
+      "adapted": false
+    },
+    {
+      "number": 42,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 4,
+      "adapted": false
+    },
+    {
+      "number": 43,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 3,
+      "adapted": false
+    },
+    {
+      "number": 44,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 430,
+      "adapted": false
+    },
+    {
+      "number": 45,
+      "executed": true,
+      "verified": true,
+      "result_count": 18509,
+      "elapsed_ms": 302,
+      "adapted": true
+    },
+    {
+      "number": 46,
+      "executed": true,
+      "verified": true,
+      "result_count": 18509,
+      "elapsed_ms": 170,
+      "adapted": false
+    },
+    {
+      "number": 47,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 17,
+      "adapted": false
+    },
+    {
+      "number": 48,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "min": null,
+          "max": null,
+          "avg": null
+        }
+      ],
+      "elapsed_ms": 14,
+      "adapted": false
+    },
+    {
+      "number": 49,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 2,
+      "adapted": false
+    },
+    {
+      "number": 50,
+      "executed": true,
+      "verified": true,
+      "result_count": 11,
+      "elapsed_ms": 2,
+      "adapted": false
+    },
+    {
+      "number": 51,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "elapsed_ms": 225,
+      "adapted": false
+    },
+    {
+      "number": 52,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 16,
+      "adapted": false
+    },
+    {
+      "number": 53,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "value": 0,
+      "elapsed_ms": 3,
+      "adapted": false
+    },
+    {
+      "number": 54,
+      "executed": true,
+      "verified": true,
+      "result_count": 862,
+      "elapsed_ms": 75,
+      "adapted": false
+    },
+    {
+      "number": 55,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "elapsed_ms": 74,
+      "adapted": true
+    },
+    {
+      "number": 56,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 85,
+      "adapted": true
+    },
+    {
+      "number": 57,
+      "executed": true,
+      "verified": true,
+      "result_count": 37662,
+      "elapsed_ms": 564,
+      "adapted": true
+    },
+    {
+      "number": 58,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 148,
+      "adapted": true
+    },
+    {
+      "number": 59,
+      "executed": true,
+      "verified": true,
+      "result_count": 1487,
+      "elapsed_ms": 53,
+      "adapted": false
+    },
+    {
+      "number": 60,
+      "executed": true,
+      "verified": true,
+      "result_count": 2,
+      "aggregate_summary": [
+        {
+          "_id": "Туберкулёз / test_B",
+          "count": 4276
+        },
+        {
+          "_id": null,
+          "count": 37662
+        }
+      ],
+      "elapsed_ms": 20,
+      "adapted": false
+    },
+    {
+      "number": 61,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 1925,
+      "adapted": false
+    },
+    {
+      "number": 62,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 164,
+      "adapted": false
+    },
+    {
+      "number": 63,
+      "executed": true,
+      "verified": true,
+      "result_count": 41938,
+      "elapsed_ms": 1985,
+      "adapted": true
+    },
+    {
+      "number": 64,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "min_date": "2018-01-09 00:00:00",
+          "max_date": "2024-10-22 10:49:00"
+        }
+      ],
+      "elapsed_ms": 89,
+      "adapted": false
+    },
+    {
+      "number": 65,
+      "executed": true,
+      "verified": true,
+      "result_count": 41938,
+      "elapsed_ms": 287,
+      "adapted": false
+    },
+    {
+      "number": 66,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 17,
+      "adapted": false
+    },
+    {
+      "number": 67,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": "Ленинградская область",
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 270,
+      "adapted": false
+    },
+    {
+      "number": 68,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "elapsed_ms": 1896,
+      "adapted": false
+    },
+    {
+      "number": 69,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 23,
+      "adapted": false
+    },
+    {
+      "number": 70,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 5,
+      "adapted": false
+    },
+    {
+      "number": 71,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 5,
+      "adapted": false
+    },
+    {
+      "number": 72,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "avg_days": 2241.8121065375303
+        }
+      ],
+      "elapsed_ms": 5,
+      "adapted": true
+    },
+    {
+      "number": 73,
+      "executed": true,
+      "verified": true,
+      "result_count": 4276,
+      "elapsed_ms": 42,
+      "adapted": false
+    },
+    {
+      "number": 74,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 3,
+      "adapted": false
+    },
+    {
+      "number": 75,
+      "executed": true,
+      "verified": true,
+      "result_count": 750,
+      "value": 750,
+      "elapsed_ms": 6,
+      "adapted": true
+    },
+    {
+      "number": 76,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "value": 0,
+      "elapsed_ms": 4,
+      "adapted": true
+    },
+    {
+      "number": 77,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 4,
+      "adapted": true
+    },
+    {
+      "number": 78,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": 1,
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 12,
+      "adapted": false
+    },
+    {
+      "number": 79,
+      "executed": true,
+      "verified": true,
+      "result_count": 2,
+      "aggregate_summary": [
+        {
+          "_id": "Мужчина",
+          "avg_age": 45.919116866574676
+        },
+        {
+          "_id": "Женщина",
+          "avg_age": 46.24989373007439
+        }
+      ],
+      "elapsed_ms": 1235,
+      "adapted": true
+    },
+    {
+      "number": 80,
+      "executed": true,
+      "verified": true,
+      "result_count": 78,
+      "elapsed_ms": 41,
+      "adapted": false
+    },
+    {
+      "number": 81,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": "Ленинградская область",
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 2246,
+      "adapted": true
+    },
+    {
+      "number": 82,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": "Ленинградская область",
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 2227,
+      "adapted": true
+    },
+    {
+      "number": 83,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 2477,
+      "adapted": true
+    },
+    {
+      "number": 84,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 1669,
+      "adapted": false
+    },
+    {
+      "number": 85,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 191,
+      "adapted": false
+    },
+    {
+      "number": 86,
+      "executed": true,
+      "verified": true,
+      "result_count": 5,
+      "aggregate_summary": [
+        {
+          "_id": 0,
+          "count": 2862
+        },
+        {
+          "_id": 18,
+          "count": 12243
+        },
+        {
+          "_id": 40,
+          "count": 11324
+        },
+        {
+          "_id": 60,
+          "count": 11233
+        },
+        {
+          "_id": "без возраста",
+          "count": 4276
+        }
+      ],
+      "elapsed_ms": 38,
+      "adapted": true
+    },
+    {
+      "number": 87,
+      "executed": true,
+      "verified": true,
+      "result_count": 2,
+      "aggregate_summary": [
+        {
+          "_id": "Мужчина",
+          "count": 18842
+        },
+        {
+          "_id": "Женщина",
+          "count": 18820
+        }
+      ],
+      "elapsed_ms": 3040,
+      "adapted": true
+    },
+    {
+      "number": 88,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "count": 41938
+        }
+      ],
+      "elapsed_ms": 29,
+      "adapted": true
+    },
+    {
+      "number": 89,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "_id": null,
+          "avg_per_focus": 1
+        }
+      ],
+      "elapsed_ms": 104,
+      "adapted": true
+    },
+    {
+      "number": 90,
+      "executed": true,
+      "verified": true,
+      "result_count": 81,
+      "elapsed_ms": 40,
+      "adapted": true
+    },
+    {
+      "number": 91,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 730,
+      "adapted": true
+    },
+    {
+      "number": 92,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "orphans": 37662
+        }
+      ],
+      "elapsed_ms": 337,
+      "adapted": false
+    },
+    {
+      "number": 93,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "orphans": 41938
+        }
+      ],
+      "elapsed_ms": 333,
+      "adapted": false
+    },
+    {
+      "number": 94,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 62,
+      "adapted": true
+    },
+    {
+      "number": 95,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "orphans": 4276
+        }
+      ],
+      "elapsed_ms": 535,
+      "adapted": true
+    },
+    {
+      "number": 96,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "orphans": 4276
+        }
+      ],
+      "elapsed_ms": 431,
+      "adapted": true
+    },
+    {
+      "number": 97,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 85,
+      "adapted": false
+    },
+    {
+      "number": 98,
+      "executed": true,
+      "verified": true,
+      "result_count": 0,
+      "aggregate_summary": [],
+      "elapsed_ms": 318,
+      "adapted": false
+    },
+    {
+      "number": 99,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "orphans": 4276
+        }
+      ],
+      "elapsed_ms": 35,
+      "adapted": false
+    },
+    {
+      "number": 100,
+      "executed": true,
+      "verified": true,
+      "result_count": 1,
+      "aggregate_summary": [
+        {
+          "orphans": 37662
+        }
+      ],
+      "elapsed_ms": 333,
+      "adapted": true
+    }
+  ]
+}

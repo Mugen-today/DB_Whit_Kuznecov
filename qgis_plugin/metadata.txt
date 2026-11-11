@@ -1,0 +1,11 @@
+[general]
+name=MongoDB Data Loader
+qgisMinimumVersion=3.28
+qgisMaximumVersion=3.99
+version=0.8.0
+author=GIS-MongoDB project
+description=Browse and edit MongoDB collections; create validated linked records through backend
+about=Authenticated HTTP connection, memory vector provider, optimistic revisions and GeoPackage export.
+category=Database
+experimental=True
+hasProcessingProvider=False

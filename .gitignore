@@ -1,0 +1,57 @@
+.env
+# Secrets and local configuration
+.env.*
+!.env.example
+
+*.pem
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+.coverage
+htmlcov/
+
+# IDE
+.vs/
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.backup
+
+# MongoDB backups and local data
+storage/backup/*
+!storage/backup/README.md
+storage/backups/
+*.bson
+*.archive
+*.dump
+
+# Local datasets
+data/raw/
+data/private/
+*.zip
+
+*.xlsx
+excel-report*.json
+
+# Bundled reproducible source and installable plugin are part of this release.
+!data/test_datasetA.xlsx
+!dist/qgis_mongodb.zip
+
+!data/testB_normalized.json

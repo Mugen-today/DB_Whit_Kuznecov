@@ -1,0 +1,6 @@
+digraph G {graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.5"]; node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#93c5fd",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.12"]; edge [fontname="DejaVu Sans",fontsize=10,color="#64748b"];rankdir=TB;node[fontsize=11];
+subgraph cluster_clinical {label="Клинические связи: стрелка указывает на документ-цель FK";color="#cbd5e1";P[label="Patient._id"];T[label="Therapy\npatient → Patient._id"];I[label="Instances\npatient / therapy\ninstance — отдельный ключ связи"];F[label="Foci\nid_instance → Instances.instance\nlocation → Location._id"];L[label="Location\naddress.region / address.geodata"];G[label="Geodata\ngeometry · Longitude · Latitude"];T->P;I->P;I->T;F->I[label="instance"];F->L;L->G;}
+subgraph cluster_address {label="Направление адресных ссылок в model.json";color="#cbd5e1";R[label="Region"];MU[label="Municipality"];S[label="Settlement"];ST[label="Street"];B[label="Building"];PL[label="Placement"];R->MU;MU->S;S->ST;ST->B;B->PL;}
+L->R;RE[label="Reception"];GE[label="Gender"];SG[label="Social_group"];SE[label="Severity"];IN[label="Influence"];I->RE;P->GE;P->SG;T->SE;T->IN;
+
+}
