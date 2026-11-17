@@ -1,0 +1,3 @@
+volumes:
+  mongo_data: {external: false}
+  mongo_config: {external: false}

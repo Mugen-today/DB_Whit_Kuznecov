@@ -1,0 +1,21 @@
+{
+  "date": "2026-11-14",
+  "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "architecture": "x86_64",
+  "python": "3.12.14",
+  "mongodb": "8.0.34",
+  "qgis": "3.40.6",
+  "baseline_archive_sha256": "b4c1f1d323058cb739f4a7558fd4c9fe977deaf0a2b5722acb589133b8596716",
+  "backend_repeats": 3,
+  "warmup_runs": 1,
+  "fixture_rows": 4000,
+  "unused_bytes_per_document": 8192,
+  "fixture_collections_with_unused_text": [
+    "Patient",
+    "Therapy",
+    "Instances",
+    "Geodata"
+  ],
+  "qgis_layer_rows": 40000,
+  "full_docker_run": false
+}

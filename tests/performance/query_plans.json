@@ -1,0 +1,55 @@
+{
+  "nReturned": 100,
+  "totalDocsExamined": 100,
+  "totalKeysExamined": 100,
+  "winningPlan": {
+    "isCached": false,
+    "stage": "LIMIT",
+    "limitAmount": 100,
+    "inputStage": {
+      "stage": "PROJECTION_SIMPLE",
+      "transformBy": {
+        "_id": 1
+      },
+      "inputStage": {
+        "stage": "FETCH",
+        "filter": {
+          "$expr": {
+            "$gt": [
+              "$_id",
+              {
+                "$const": "6af88b81f7c9513c747610d8"
+              }
+            ]
+          }
+        },
+        "inputStage": {
+          "stage": "IXSCAN",
+          "keyPattern": {
+            "_owner_id": 1,
+            "_id": 1
+          },
+          "indexName": "_owner_id_1__id_1",
+          "isMultiKey": false,
+          "multiKeyPaths": {
+            "_owner_id": [],
+            "_id": []
+          },
+          "isUnique": false,
+          "isSparse": false,
+          "isPartial": false,
+          "indexVersion": 2,
+          "direction": "forward",
+          "indexBounds": {
+            "_owner_id": [
+              "[\"qgis-user\", \"qgis-user\"]"
+            ],
+            "_id": [
+              "(ObjectId('6af88b81f7c9513c747610d8'), MaxKey]"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

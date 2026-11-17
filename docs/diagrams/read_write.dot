@@ -1,0 +1,5 @@
+digraph G {graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.5"]; node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#93c5fd",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.12"]; edge [fontname="DejaVu Sans",fontsize=10,color="#64748b"];rankdir=TB;
+Q[label="QGIS: выбранные коллекции"]; A[label="GET /v1/collections/{name}\nвладелец / роль + курсор"]; M[label="MongoDB: запрос следующей страницы"]; L[label="QGIS: таблицы + Point EPSG:4326\nвсе страницы → memory cache"]; E[label="Локальная правка\nзначение + qgis_revision"]; B[label="Backend: типы + FK + права\nсравнение ревизии + транзакция"]; OK[label="Подтверждение\nновая ревизия / геометрия",fillcolor="#dcfce7"]; NO[label="Ошибка / конфликт\nбуфер QGIS сохраняется",fillcolor="#fee2e2"];
+Q->A;A->M;M->A[label="записи + next"];A->L[label="страница"];L->E;E->B;B->M[label="проверенная запись"];B->OK[label="успех"];OK->L;B->NO[label="отказ"];
+
+}

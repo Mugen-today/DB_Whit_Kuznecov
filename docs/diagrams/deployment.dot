@@ -1,0 +1,6 @@
+digraph G {graph [fontname="DejaVu Sans", bgcolor="white", pad="0.25", nodesep="0.35", ranksep="0.5"]; node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#93c5fd",fontname="DejaVu Sans",fontsize=12,margin="0.18,0.12"]; edge [fontname="DejaVu Sans",fontsize=10,color="#64748b"];rankdir=TB;
+A[label="Выбор режима: новая установка / обновление",shape=diamond]; N[label="Новая: init → проверить .env → volumes"]; U[label="Обновление: резервная копия\nпрежний .env и прежние имена томов → configure"];
+C[label="config --connections --local-api"]; S[label="up: storage → provision → verify"]; I[label="seed A+B → геометрия и индекс"]; B[label="Сборка backend + dashboard\nожидание готовности"]; Q[label="verify → QGIS ZIP → подключение\nbackend_version = 0.8.0",fillcolor="#dcfce7"];
+A->N[label="новая"];A->U[label="обновление"];N->C;U->C;C->S;S->I;I->B;B->Q;
+
+}

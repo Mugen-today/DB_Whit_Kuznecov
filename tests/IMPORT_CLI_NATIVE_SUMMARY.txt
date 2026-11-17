@@ -1,0 +1,9 @@
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS Storage bootstrap
+PASS replica set primary
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS spatial index; valid=0; invalid preserved=0
+PASS real CLI dry-run/apply/repeat, automatic .xlsx
+PASS real CLI dry-run/apply/repeat, automatic .json
+PASS full supplied file dry-run zero writes test_datasetA_ispr_1.xlsx {"Foci": 37662, "Gender": 2, "Geodata": 14233, "Influence": 3, "Instances": 37662, "Location": 14256, "Municipality": 160, "Patient": 37662, "Reception": 5, "Region": 61, "Severity": 4, "Social_group": 11, "Therapy": 37662}
+PASS full supplied file dry-run zero writes testB_normalized_final.json {"Building": 3044, "Foci": 4276, "Geodata": 4276, "Influence": 6, "Instances": 4276, "Location": 4276, "Municipality": 19, "Patient": 4276, "Placement": 3460, "Reception": 1, "Region": 1, "Settlement": 562, "Street": 1582, "Therapy": 4276}

@@ -1,0 +1,1 @@
+Based on the supplied MongoDB Data Loader plugin. Its MongodbDataLoader entry point, menu, icon, collection selection and select-all workflow are retained. Direct PyMongo connections replaced by project backend requests; strict creation, editing and console added.

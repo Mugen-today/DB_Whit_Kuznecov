@@ -1,0 +1,30 @@
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS Storage bootstrap
+PASS replica set primary
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS spatial index; valid=0; invalid preserved=0
+PASS actual Mongo import and repeat testB_normalized_final.json {"Location": 4276, "Street": 1582, "Municipality": 19, "Settlement": 562, "Building": 3044, "Placement": 3460, "Social_group": 0, "Region": 1, "Patient": 4276, "Instances": 4276, "Geodata": 4276, "Influence": 6, "Therapy": 4276, "cases": 4276, "Gender": 0, "Severity": 0, "Reception": 1, "Foci": 4276}
+PASS actual Mongo import and repeat test_datasetA_ispr_1.xlsx {"Location": 18532, "Street": 1582, "Municipality": 179, "Settlement": 562, "Building": 3044, "Placement": 3460, "Social_group": 11, "Region": 62, "Patient": 41938, "Instances": 41938, "Geodata": 18509, "Influence": 9, "Therapy": 41938, "cases": 221420, "Gender": 2, "Severity": 4, "Reception": 6, "Foci": 41938}
+PASS geometry and core FK integrity after both actual supplied files
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS Storage bootstrap
+PASS replica set primary
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS spatial index; valid=0; invalid preserved=0
+PASS real CLI dry-run/apply/repeat, automatic .xlsx
+PASS real CLI dry-run/apply/repeat, automatic .json
+PASS actual CLI .geojson dry-run/apply/repeat and rename/delete after close
+PASS actual CLI .gpkg dry-run/apply/repeat and rename/delete after close
+PASS all synthetic Geodata have Point geometry
+PASS full supplied file dry-run zero writes test_datasetA_ispr_1.xlsx {"Foci": 37662, "Gender": 2, "Geodata": 14233, "Influence": 3, "Instances": 37662, "Location": 14256, "Municipality": 160, "Patient": 37662, "Reception": 5, "Region": 61, "Severity": 4, "Social_group": 11, "Therapy": 37662}
+PASS full supplied file dry-run zero writes testB_normalized_final.json {"Building": 3044, "Foci": 4276, "Geodata": 4276, "Influence": 6, "Instances": 4276, "Location": 4276, "Municipality": 19, "Patient": 4276, "Placement": 3460, "Reception": 1, "Region": 1, "Settlement": 562, "Street": 1582, "Therapy": 4276}
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS Storage bootstrap
+PASS replica set primary
+PASS technical accounts and gis_admin/gis_user/gis_guest roles; existing passwords retained
+PASS spatial index; valid=0; invalid preserved=0
+PASS real CLI dry-run/apply/repeat, automatic .xlsx
+PASS real CLI dry-run/apply/repeat, automatic .json
+PASS actual CLI .geojson dry-run/apply/repeat and rename/delete after close
+PASS actual CLI .gpkg dry-run/apply/repeat and rename/delete after close
+PASS all synthetic Geodata have Point geometry and core links resolve

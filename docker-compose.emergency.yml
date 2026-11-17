@@ -1,0 +1,4 @@
+# Explicitly enabled by main.py --emergency. Never publishes on all interfaces.
+services:
+  storage:
+    ports: ['127.0.0.1:${MONGO_PORT:-27017}:27017']

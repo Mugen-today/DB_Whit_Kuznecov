@@ -1,0 +1,11 @@
+# Optional local-only HTTP and dashboard exposure.
+services:
+  backend:
+    ports:
+      - "127.0.0.1:8000:8000"
+  dashboard:
+    ports:
+      - "127.0.0.1:8501:8501"
+    tmpfs:
+      - /tmp:size=64m,mode=1777
+      - /home/appuser:size=64m,mode=1777

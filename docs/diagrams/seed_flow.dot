@@ -1,0 +1,10 @@
+digraph G {
+ graph [rankdir=TB,bgcolor="white",pad="0.25",nodesep="0.4",ranksep="0.5"];
+ node [shape=box,style="rounded,filled",fillcolor="#eff6ff",color="#93c5fd",fontname="DejaVu Sans",fontsize=12];
+ edge [fontname="DejaVu Sans",fontsize=10,color="#64748b"];
+ A[label="Запуск без источников"];B[label="Схема, индексы, роли и rs0"];C[label="Готовые пустые сервисы",fillcolor="#dcfce7"];
+ D[label="Файл выбирает пользователь",fillcolor="#f3e8ff"];E[label="Excel: потоковое чтение\nGPKG: передача частями"];
+ F[label="Общие модули backend\nмаппинг, типы, связи, CRS"];H[label="Полная проверка всех строк"];
+ I[label="Разрешённые строки\nтранзакция на связанный набор"];J[label="MongoDB + прогресс + полный отчёт"];
+ A->B->C;C->D[label="необязательное действие"];D->E->F->H->I->J;
+}

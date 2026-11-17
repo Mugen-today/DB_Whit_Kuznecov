@@ -1,0 +1,802 @@
+[
+  {
+    "number": 1,
+    "description": "Выборка первых 10 пациентов",
+    "original": "db.Pdtient.find().limit(10)",
+    "mongo": "db.Patient.find().limit(10)",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient LIMIT 10;"
+  },
+  {
+    "number": 2,
+    "description": "Все записи справочника Gender",
+    "original": "db.Gender.find()",
+    "mongo": "db.Gender.find()",
+    "changed": false,
+    "original_sql": "SELECT * FROM Gender;"
+  },
+  {
+    "number": 3,
+    "description": "Все записи справочника Social_group",
+    "original": "db.Social_group.find()",
+    "mongo": "db.Social_group.find()",
+    "changed": false,
+    "original_sql": "SELECT * FROM Social_group;"
+  },
+  {
+    "number": 4,
+    "description": "Все записи справочника Severity",
+    "original": "db.Severity.find()",
+    "mongo": "db.Severity.find()",
+    "changed": false,
+    "original_sql": "SELECT * FROM Severity;"
+  },
+  {
+    "number": 5,
+    "description": "Все записи справочника Influence",
+    "original": "db.Influence.find()",
+    "mongo": "db.Influence.find()",
+    "changed": false,
+    "original_sql": "SELECT * FROM Influence;"
+  },
+  {
+    "number": 6,
+    "description": "Все записи справочника Reception",
+    "original": "db.Reception.find()",
+    "mongo": "db.Reception.find()",
+    "changed": false,
+    "original_sql": "SELECT * FROM Reception;"
+  },
+  {
+    "number": 7,
+    "description": "Первые 10 регионов",
+    "original": "db.Region.find().limit(10)",
+    "mongo": "db.Region.find().limit(10)",
+    "changed": false,
+    "original_sql": "SELECT * FROM Region LIMIT 10;"
+  },
+  {
+    "number": 8,
+    "description": "Количество документов в Pdtient",
+    "original": "db.Pdtient.countDocuments({})",
+    "mongo": "db.Patient.countDocuments({})",
+    "changed": true,
+    "original_sql": "SELECT COUNT(*) FROM Pdtient;"
+  },
+  {
+    "number": 9,
+    "description": "Количество документов в Instances",
+    "original": "db.Instances.countDocuments({})",
+    "mongo": "db.Instances.countDocuments({})",
+    "changed": false,
+    "original_sql": "SELECT COUNT(*) FROM Instances;"
+  },
+  {
+    "number": 10,
+    "description": "Количество документов в Therapy",
+    "original": "db.Therapy.countDocuments({})",
+    "mongo": "db.Therapy.countDocuments({})",
+    "changed": false,
+    "original_sql": "SELECT COUNT(*) FROM Therapy;"
+  },
+  {
+    "number": 11,
+    "description": "Пациенты старше 60 лет",
+    "original": "db.Pdtient.find({ age: { $gt: 60 } })",
+    "mongo": "db.Patient.find({ age: { $gt: 60 } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE age > 60;"
+  },
+  {
+    "number": 12,
+    "description": "Пациенты 18–40 лет включительно",
+    "original": "db.Pdtient.find({ age: { $gte: 18, $lte: 40 } })",
+    "mongo": "db.Patient.find({ age: { $gte: 18, $lte: 40 } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE age BETWEEN 18 AND 40;"
+  },
+  {
+    "number": 13,
+    "description": "Пациенты с заполненным полем passport",
+    "original": "db.Pdtient.find({ passport: { $ne: null } })",
+    "mongo": "db.Patient.find({ passport: { $ne: null } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE passport IS NOT NULL;"
+  },
+  {
+    "number": 14,
+    "description": "Пациенты, зарегистрированные с 2024-01-01",
+    "original": "db.Pdtient.find({ reg_date: { $gte: new Date(\"2024-01-01\") } })",
+    "mongo": "db.Patient.find({ reg_date: { $gte: new Date(\"2024-01-01\") } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE reg_date >= '2024-01-01';"
+  },
+  {
+    "number": 15,
+    "description": "Случаи лечения с госпитализацией",
+    "original": "db.Therapy.find({ hospitalization: true })",
+    "mongo": "db.Therapy.find({ hospitalization: true })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy WHERE hospitalization = true;"
+  },
+  {
+    "number": 16,
+    "description": "Случаи лечения с рецидивом",
+    "original": "db.Therapy.find({ relapse: true })",
+    "mongo": "db.Therapy.find({ relapse: true })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy WHERE relapse = true;"
+  },
+  {
+    "number": 17,
+    "description": "Терапия с диагнозом «ОРВИ» в массиве diagnosis",
+    "original": "db.Therapy.find({ diagnosis: \"ОРВИ\" })",
+    "mongo": "db.Therapy.find({ diagnosis: \"ОРВИ\" })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy WHERE 'ОРВИ' = ANY(diagnosis);"
+  },
+  {
+    "number": 18,
+    "description": "Случаи Instances за последние 30 дней",
+    "original": "db.Instances.find({ date: { $gte: new Date(Date.now() - 30 * 24 * 60 * 60 * 1000) } })",
+    "mongo": "db.Instances.find({ date: { $gte: new Date(AS_OF.getTime() - 30 * 24 * 60 * 60 * 1000) } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Instances WHERE date >= CURRENT_DATE - INTERVAL 30 DAY;"
+  },
+  {
+    "number": 19,
+    "description": "Instances с заполненным полем Other",
+    "original": "db.Instances.find({ Other: { $nin: [null, \"\"] } })",
+    "mongo": "db.Instances.find({ Other: { $exists: true, $nin: [null, \"\"] } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Instances WHERE Other IS NOT NULL AND Other <> '';"
+  },
+  {
+    "number": 20,
+    "description": "Терапия с непустым side_effect",
+    "original": "db.Therapy.find({ \"result.side_effect\": { $nin: [null, \"\"] } })",
+    "mongo": "db.Therapy.find({ \"result.side effect\": { $exists: true, $nin: [null, \"\"] } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Therapy WHERE result.side_effect IS NOT NULL;"
+  },
+  {
+    "number": 21,
+    "description": "Пациенты с указанной вакциной",
+    "original": "db.Pdtient.find({ \"medical_record.vaccine\": { $nin: [null, \"\"] } })",
+    "mongo": "db.Patient.find({ \"medical_record.vaccine\": { $exists: true, $nin: [null, \"\"] } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE medical_record.vaccine IS NOT NULL;"
+  },
+  {
+    "number": 22,
+    "description": "Пациенты с хроническим заболеванием",
+    "original": "db.Pdtient.find({ \"medical_record.chronic_disease\": { $nin: [null, \"\"] } })",
+    "mongo": "db.Patient.find({ \"medical_record.chronic_diseases\": { $exists: true, $nin: [null, \"\"] } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE medical_record.chronic_disease IS NOT NULL;"
+  },
+  {
+    "number": 23,
+    "description": "Пациенты с расшифрованным полом (JOIN Gender)",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"gender_info\" } }, { $unwind: \"$gender_info\" }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"gender_info\" } }, { $unwind: \"$gender_info\" }])",
+    "changed": true,
+    "original_sql": "SELECT p.*, g.type FROM Pdtient p JOIN Gender g ON p.gender = g._id;"
+  },
+  {
+    "number": 24,
+    "description": "Пациенты с расшифрованной социальной группой",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"social_info\" } }, { $unwind: \"$social_info\" }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"social_info\" } }, { $unwind: \"$social_info\" }])",
+    "changed": true,
+    "original_sql": "SELECT p.*, s.type FROM Pdtient p JOIN Social_group s ON p.social_group = s._id;"
+  },
+  {
+    "number": 25,
+    "description": "Количество пациентов по каждому типу пола",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$g.type\", count: { $sum: 1 } } }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$g.type\", count: { $sum: 1 } } }])",
+    "changed": true,
+    "original_sql": "SELECT g.type, COUNT(*) FROM Pdtient p JOIN Gender g ON p.gender = g._id GROUP BY g.type;"
+  },
+  {
+    "number": 26,
+    "description": "Количество пациентов по социальным группам",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }, { $group: { _id: \"$s.type\", count: { $sum: 1 } } }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }, { $group: { _id: \"$s.type\", count: { $sum: 1 } } }])",
+    "changed": true,
+    "original_sql": "SELECT s.type, COUNT(*) FROM Pdtient p JOIN Social_group s ON p.social_group = s._id GROUP BY s.type;"
+  },
+  {
+    "number": 27,
+    "description": "Список степеней тяжести",
+    "original": "db.Severity.distinct(\"degree\")",
+    "mongo": "db.Severity.distinct(\"degree\")",
+    "changed": false,
+    "original_sql": "SELECT DISTINCT degree FROM Severity;"
+  },
+  {
+    "number": 28,
+    "description": "Список влияющих факторов",
+    "original": "db.Influence.distinct(\"name\")",
+    "mongo": "db.Influence.distinct(\"name\")",
+    "changed": false,
+    "original_sql": "SELECT DISTINCT name FROM Influence;"
+  },
+  {
+    "number": 29,
+    "description": "Список типов приёма",
+    "original": "db.Reception.distinct(\"type\")",
+    "mongo": "db.Reception.distinct(\"type\")",
+    "changed": false,
+    "original_sql": "SELECT DISTINCT type FROM Reception;"
+  },
+  {
+    "number": 30,
+    "description": "Мужчины-пациенты (пол «мужской»)",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $match: { \"g.type\": \"мужской\" } }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $match: { \"g.type\": \"мужской\" } }])",
+    "changed": true,
+    "original_sql": "SELECT p.* FROM Pdtient p JOIN Gender g ON p.gender = g._id WHERE g.type = 'мужской';"
+  },
+  {
+    "number": 31,
+    "description": "Пациенты социальной группы «работающие»",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }, { $match: { \"s.type\": \"работающие\" } }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }, { $match: { \"s.type\": \"работающие\" } }])",
+    "changed": true,
+    "original_sql": "SELECT p.* FROM Pdtient p JOIN Social_group s ON p.social_group = s._id WHERE s.type = 'работающие';"
+  },
+  {
+    "number": 32,
+    "description": "Количество случаев лечения по степени тяжести",
+    "original": "db.Therapy.aggregate([{ $lookup: { from: \"Severity\", localField: \"severity\", foreignField: \"_id\", as: \"sv\" } }, { $unwind: \"$sv\" }, { $group: { _id: \"$sv.degree\", count: { $sum: 1 } } }])",
+    "mongo": "db.Therapy.aggregate([{ $lookup: { from: \"Severity\", localField: \"severity\", foreignField: \"_id\", as: \"sv\" } }, { $unwind: \"$sv\" }, { $group: { _id: \"$sv.degree\", count: { $sum: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT sv.degree, COUNT(*) FROM Therapy t JOIN Severity sv ON t.severity = sv._id GROUP BY sv.degree;"
+  },
+  {
+    "number": 33,
+    "description": "10 самых пожилых пациентов",
+    "original": "db.Pdtient.find().sort({ age: -1 }).limit(10)",
+    "mongo": "db.Patient.find().sort({ age: -1 }).limit(10)",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient ORDER BY age DESC LIMIT 10;"
+  },
+  {
+    "number": 34,
+    "description": "Пациенты без указанного пола (ссылка пустая)",
+    "original": "db.Pdtient.find({ gender: { $in: [null] } })",
+    "mongo": "db.Patient.find({ gender: { $in: [null] } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE gender IS NULL;"
+  },
+  {
+    "number": 35,
+    "description": "Минимальная и максимальная дата регистрации",
+    "original": "db.Pdtient.aggregate([{ $group: { _id: null, min_date: { $min: \"$reg_date\" }, max_date: { $max: \"$reg_date\" } } }])",
+    "mongo": "db.Patient.aggregate([{ $group: { _id: null, min_date: { $min: \"$reg_date\" }, max_date: { $max: \"$reg_date\" } } }])",
+    "changed": true,
+    "original_sql": "SELECT MIN(reg_date), MAX(reg_date) FROM Pdtient;"
+  },
+  {
+    "number": 36,
+    "description": "Проверка структуры medical_record (есть ли оба поля)",
+    "original": "db.Pdtient.find({ $or: [ { medical_record: { $exists: false } }, { \"medical_record.chronic_disease\": { $exists: false } }, { \"medical_record.vaccine\": { $exists: false } } ] })",
+    "mongo": "db.Patient.find({ $or: [ { medical_record: { $exists: false } }, { \"medical_record.chronic_diseases\": { $exists: false } }, { \"medical_record.vaccine\": { $exists: false } } ] })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient WHERE medical_record IS NULL OR medical_record.chronic_disease IS NULL OR medical_record.vaccine IS NULL;"
+  },
+  {
+    "number": 37,
+    "description": "Значения пола, не найденные в справочнике Gender",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$gender\" } }])",
+    "mongo": "db.Patient.aggregate([{$lookup:{from:\"Gender\",localField:\"gender\",foreignField:\"_id\",as:\"g\"}},{$match:{g:{$size:0}}},{$group:{_id:\"$gender\"}}])",
+    "changed": true,
+    "original_sql": "SELECT DISTINCT p.gender FROM Pdtient p LEFT JOIN Gender g ON p.gender = g._id WHERE g._id IS NULL;"
+  },
+  {
+    "number": 38,
+    "description": "Пациенты по комбинации пол + социальная группа",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }, { $group: { _id: { gender: \"$g.type\", social: \"$s.type\" }, count: { $sum: 1 } } }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }, { $group: { _id: { gender: \"$g.type\", social: \"$s.type\" }, count: { $sum: 1 } } }])",
+    "changed": true,
+    "original_sql": "SELECT g.type, s.type, COUNT(*) FROM Pdtient p JOIN Gender g ON p.gender = g._id JOIN Social_group s ON p.social_group = s._id GROUP BY g.type, s.type;"
+  },
+  {
+    "number": 39,
+    "description": "Регионы со связанными муниципалитетами",
+    "original": "db.Region.aggregate([{ $lookup: { from: \"Municipality\", localField: \"municipality\", foreignField: \"_id\", as: \"m\" } }, { $unwind: \"$m\" }])",
+    "mongo": "db.Region.aggregate([{ $lookup: { from: \"Municipality\", localField: \"municipality\", foreignField: \"_id\", as: \"m\" } }, { $unwind: \"$m\" }])",
+    "changed": false,
+    "original_sql": "SELECT r.name, m.name FROM Region r JOIN Municipality m ON r.municipality = m._id;"
+  },
+  {
+    "number": 40,
+    "description": "Муниципалитеты с населенными пунктами",
+    "original": "db.Municipality.aggregate([{ $lookup: { from: \"Settlement\", localField: \"settlement\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }])",
+    "mongo": "db.Municipality.aggregate([{ $lookup: { from: \"Settlement\", localField: \"settlement\", foreignField: \"_id\", as: \"s\" } }, { $unwind: \"$s\" }])",
+    "changed": false,
+    "original_sql": "SELECT m.name, s.name FROM Municipality m JOIN Settlement s ON m.settlement = s._id;"
+  },
+  {
+    "number": 41,
+    "description": "Населенные пункты с улицами",
+    "original": "db.Settlement.aggregate([{ $lookup: { from: \"Street\", localField: \"street\", foreignField: \"_id\", as: \"st\" } }, { $unwind: \"$st\" }])",
+    "mongo": "db.Settlement.aggregate([{ $lookup: { from: \"Street\", localField: \"street\", foreignField: \"_id\", as: \"st\" } }, { $unwind: \"$st\" }])",
+    "changed": false,
+    "original_sql": "SELECT s.name, st.name FROM Settlement s JOIN Street st ON s.street = st._id;"
+  },
+  {
+    "number": 42,
+    "description": "Улицы с домами",
+    "original": "db.Street.aggregate([{ $lookup: { from: \"Building\", localField: \"building\", foreignField: \"_id\", as: \"b\" } }, { $unwind: \"$b\" }])",
+    "mongo": "db.Street.aggregate([{ $lookup: { from: \"Building\", localField: \"building\", foreignField: \"_id\", as: \"b\" } }, { $unwind: \"$b\" }])",
+    "changed": false,
+    "original_sql": "SELECT st.name, b.house FROM Street st JOIN Building b ON st.building = b._id;"
+  },
+  {
+    "number": 43,
+    "description": "Дома с помещениями",
+    "original": "db.Building.aggregate([{ $lookup: { from: \"Placement\", localField: \"placement\", foreignField: \"_id\", as: \"pl\" } }, { $unwind: \"$pl\" }])",
+    "mongo": "db.Building.aggregate([{ $lookup: { from: \"Placement\", localField: \"placement\", foreignField: \"_id\", as: \"pl\" } }, { $unwind: \"$pl\" }])",
+    "changed": false,
+    "original_sql": "SELECT b.house, pl.number FROM Building b JOIN Placement pl ON b.placement = pl._id;"
+  },
+  {
+    "number": 44,
+    "description": "Полная адресная цепочка: регион → помещение",
+    "original": "db.Region.aggregate([\n  { $lookup: { from: \"Municipality\", localField: \"municipality\", foreignField: \"_id\", as: \"m\" } },\n  { $unwind: \"$m\" },\n  { $lookup: { from: \"Settlement\", localField: \"m.settlement\", foreignField: \"_id\", as: \"s\" } },\n  { $unwind: \"$s\" },\n  { $lookup: { from: \"Street\", localField: \"s.street\", foreignField: \"_id\", as: \"st\" } },\n  { $unwind: \"$st\" },\n  { $lookup: { from: \"Building\", localField: \"st.building\", foreignField: \"_id\", as: \"b\" } },\n  { $unwind: \"$b\" },\n  { $lookup: { from: \"Placement\", localField: \"b.placement\", foreignField: \"_id\", as: \"pl\" } },\n  { $unwind: \"$pl\" }\n])",
+    "mongo": "db.Region.aggregate([\n  { $lookup: { from: \"Municipality\", localField: \"municipality\", foreignField: \"_id\", as: \"m\" } },\n  { $unwind: \"$m\" },\n  { $lookup: { from: \"Settlement\", localField: \"m.settlement\", foreignField: \"_id\", as: \"s\" } },\n  { $unwind: \"$s\" },\n  { $lookup: { from: \"Street\", localField: \"s.street\", foreignField: \"_id\", as: \"st\" } },\n  { $unwind: \"$st\" },\n  { $lookup: { from: \"Building\", localField: \"st.building\", foreignField: \"_id\", as: \"b\" } },\n  { $unwind: \"$b\" },\n  { $lookup: { from: \"Placement\", localField: \"b.placement\", foreignField: \"_id\", as: \"pl\" } },\n  { $unwind: \"$pl\" }\n])",
+    "changed": false,
+    "original_sql": "SELECT r.name, m.name, s.name, st.name, b.house, pl.number FROM Region r JOIN Municipality m ON r.municipality = m._id JOIN Settlement s ON m.settlement = s._id JOIN Street st ON s.street = st._id JOIN Building b ON st.building = b._id JOIN Placement pl ON b.placement = pl._id;"
+  },
+  {
+    "number": 45,
+    "description": "Геоданные с валидной долготой (РФ)",
+    "original": "db.Geodata.find({ Longitude: { $gte: 19, $lte: 190 } })",
+    "mongo": "db.Geodata.find({Longitude:{$gte:19,$lte:180}})",
+    "changed": true,
+    "original_sql": "SELECT * FROM Geodata WHERE Longitude BETWEEN 19 AND 190;"
+  },
+  {
+    "number": 46,
+    "description": "Геоданные с валидной широтой (РФ)",
+    "original": "db.Geodata.find({ Latitude: { $gte: 41, $lte: 82 } })",
+    "mongo": "db.Geodata.find({ Latitude: { $gte: 41, $lte: 82 } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Geodata WHERE Latitude BETWEEN 41 AND 82;"
+  },
+  {
+    "number": 47,
+    "description": "Геоданные с пропущенными координатами",
+    "original": "db.Geodata.find({ $or: [ { Longitude: { $in: [null] } }, { Latitude: { $in: [null] } } ] })",
+    "mongo": "db.Geodata.find({ $or: [ { Longitude: { $in: [null] } }, { Latitude: { $in: [null] } } ] })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Geodata WHERE Longitude IS NULL OR Latitude IS NULL;"
+  },
+  {
+    "number": 48,
+    "description": "Статистика высоты: min, max, среднее",
+    "original": "db.Geodata.aggregate([{ $group: { _id: null, min: { $min: \"$Elevation\" }, max: { $max: \"$Elevation\" }, avg: { $avg: \"$Elevation\" } } }])",
+    "mongo": "db.Geodata.aggregate([{ $group: { _id: null, min: { $min: \"$Elevation\" }, max: { $max: \"$Elevation\" }, avg: { $avg: \"$Elevation\" } } }])",
+    "changed": false,
+    "original_sql": "SELECT MIN(Elevation), MAX(Elevation), AVG(Elevation) FROM Geodata;"
+  },
+  {
+    "number": 49,
+    "description": "Локации без геоданных",
+    "original": "db.Location.find({ \"address.geodata\": { $in: [null] } })",
+    "mongo": "db.Location.find({ \"address.geodata\": { $in: [null] } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Location WHERE address.geodata IS NULL;"
+  },
+  {
+    "number": 50,
+    "description": "Локации без указанного региона",
+    "original": "db.Location.find({ \"address.region\": { $in: [null] } })",
+    "mongo": "db.Location.find({ \"address.region\": { $in: [null] } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Location WHERE address.region IS NULL;"
+  },
+  {
+    "number": 51,
+    "description": "Очаги с локацией",
+    "original": "db.Foci.aggregate([{ $lookup: { from: \"Location\", localField: \"location\", foreignField: \"_id\", as: \"l\" } }, { $unwind: \"$l\" }])",
+    "mongo": "db.Foci.aggregate([{ $lookup: { from: \"Location\", localField: \"location\", foreignField: \"_id\", as: \"l\" } }, { $unwind: \"$l\" }])",
+    "changed": false,
+    "original_sql": "SELECT f._id, l.address FROM Foci f JOIN Location l ON f.location = l._id;"
+  },
+  {
+    "number": 52,
+    "description": "Локации с полностью пустым адресом",
+    "original": "db.Location.find({ $or: [ { address: { $exists: false } }, { address: {} } ] })",
+    "mongo": "db.Location.find({ $or: [ { address: { $exists: false } }, { address: {} } ] })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Location WHERE address IS NULL OR address = {};"
+  },
+  {
+    "number": 53,
+    "description": "Количество помещений в базе",
+    "original": "db.Placement.countDocuments({})",
+    "mongo": "db.Placement.countDocuments({})",
+    "changed": false,
+    "original_sql": "SELECT COUNT(*) FROM Placement;"
+  },
+  {
+    "number": 54,
+    "description": "Дубликаты геоточек (одинаковые координаты)",
+    "original": "db.Geodata.aggregate([{ $group: { _id: { lon: \"$Longitude\", lat: \"$Latitude\" }, n: { $sum: 1 } } }, { $match: { n: { $gt: 1 } } }])",
+    "mongo": "db.Geodata.aggregate([{ $group: { _id: { lon: \"$Longitude\", lat: \"$Latitude\" }, n: { $sum: 1 } } }, { $match: { n: { $gt: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT Longitude, Latitude, COUNT(*) FROM Geodata GROUP BY Longitude, Latitude HAVING COUNT(*) > 1;"
+  },
+  {
+    "number": 55,
+    "description": "Количество случаев по каждому очагу",
+    "original": "db.Instances.aggregate([{ $group: { _id: \"$Focus_point\", count: { $sum: 1 } } }])",
+    "mongo": "db.Foci.aggregate([{$lookup:{from:\"Instances\",localField:\"id_instance\",foreignField:\"instance\",as:\"i\"}},{$project:{_id:1,count:{$size:\"$i\"}}}])",
+    "changed": true,
+    "original_sql": "SELECT Focus_point, COUNT(*) FROM Instances GROUP BY Focus_point;"
+  },
+  {
+    "number": 56,
+    "description": "Очаги без зарегистрированных случаев",
+    "original": "db.Foci.aggregate([{ $lookup: { from: \"Instances\", localField: \"_id\", foreignField: \"Focus_point\", as: \"i\" } }, { $match: { i: { $size: 0 } } }])",
+    "mongo": "db.Foci.aggregate([{ $lookup: { from: \"Instances\", localField: \"id_instance\", foreignField: \"instance\", as: \"i\" } }, { $match: { i: { $size: 0 } } }])",
+    "changed": true,
+    "original_sql": "SELECT f.* FROM Foci f LEFT JOIN Instances i ON f._id = i.Focus_point WHERE i._id IS NULL;"
+  },
+  {
+    "number": 57,
+    "description": "Случаи без привязки к очагу",
+    "original": "db.Instances.find({ Focus_point: { $in: [null] } })",
+    "mongo": "db.Instances.aggregate([{$lookup:{from:\"Foci\",localField:\"instance\",foreignField:\"id_instance\",as:\"f\"}},{$match:{f:{$size:0}}}])",
+    "changed": true,
+    "original_sql": "SELECT * FROM Instances WHERE Focus_point IS NULL;"
+  },
+  {
+    "number": 58,
+    "description": "Дубликаты id_instance",
+    "original": "db.Instances.aggregate([{ $group: { _id: \"$id_instance\", n: { $sum: 1 } } }, { $match: { n: { $gt: 1 } } }])",
+    "mongo": "db.Instances.aggregate([{ $group: { _id: \"$instance\", n: { $sum: 1 } } }, { $match: { n: { $gt: 1 } } }])",
+    "changed": true,
+    "original_sql": "SELECT id_instance, COUNT(*) FROM Instances GROUP BY id_instance HAVING COUNT(*) > 1;"
+  },
+  {
+    "number": 59,
+    "description": "Случаи по дням",
+    "original": "db.Instances.aggregate([{ $group: { _id: { $dateToString: { format: \"%Y-%m-%d\", date: \"$date\" } }, count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "mongo": "db.Instances.aggregate([{ $group: { _id: { $dateToString: { format: \"%Y-%m-%d\", date: \"$date\" } }, count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "changed": false,
+    "original_sql": "SELECT DATE(date), COUNT(*) FROM Instances GROUP BY DATE(date);"
+  },
+  {
+    "number": 60,
+    "description": "Распределение случаев по полю Other",
+    "original": "db.Instances.aggregate([{ $group: { _id: \"$Other\", count: { $sum: 1 } } }])",
+    "mongo": "db.Instances.aggregate([{ $group: { _id: \"$Other\", count: { $sum: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT Other, COUNT(*) FROM Instances GROUP BY Other;"
+  },
+  {
+    "number": 61,
+    "description": "Случаи с типом приёма",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Reception\", localField: \"reception\", foreignField: \"_id\", as: \"r\" } }, { $unwind: \"$r\" }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Reception\", localField: \"reception\", foreignField: \"_id\", as: \"r\" } }, { $unwind: \"$r\" }])",
+    "changed": false,
+    "original_sql": "SELECT i._id, r.type FROM Instances i JOIN Reception r ON i.reception = r._id;"
+  },
+  {
+    "number": 62,
+    "description": "Пациенты с более чем одним случаем заболевания",
+    "original": "db.Instances.aggregate([{ $group: { _id: \"$patient\", n: { $sum: 1 } } }, { $match: { n: { $gt: 1 } } }])",
+    "mongo": "db.Instances.aggregate([{ $group: { _id: \"$patient\", n: { $sum: 1 } } }, { $match: { n: { $gt: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT patient, COUNT(*) FROM Instances GROUP BY patient HAVING COUNT(*) > 1;"
+  },
+  {
+    "number": 63,
+    "description": "Случаи с данными пациента",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Pdtient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $unwind: \"$p\" }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Patient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $unwind: \"$p\" }])",
+    "changed": true,
+    "original_sql": "SELECT i.*, p.age FROM Instances i JOIN Pdtient p ON i.patient = p._id;"
+  },
+  {
+    "number": 64,
+    "description": "Самая ранняя и самая поздняя дата случая",
+    "original": "db.Instances.aggregate([{ $group: { _id: null, min_date: { $min: \"$date\" }, max_date: { $max: \"$date\" } } }])",
+    "mongo": "db.Instances.aggregate([{ $group: { _id: null, min_date: { $min: \"$date\" }, max_date: { $max: \"$date\" } } }])",
+    "changed": false,
+    "original_sql": "SELECT MIN(date), MAX(date) FROM Instances;"
+  },
+  {
+    "number": 65,
+    "description": "Случаи без привязки к типу приёма",
+    "original": "db.Instances.find({ reception: { $in: [null] } })",
+    "mongo": "db.Instances.find({ reception: { $in: [null] } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Instances WHERE reception IS NULL;"
+  },
+  {
+    "number": 66,
+    "description": "Случаи без привязки к пациенту",
+    "original": "db.Instances.find({ patient: { $in: [null] } })",
+    "mongo": "db.Instances.find({ patient: { $in: [null] } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Instances WHERE patient IS NULL;"
+  },
+  {
+    "number": 67,
+    "description": "Количество очагов по региону",
+    "original": "db.Foci.aggregate([{ $lookup: { from: \"Location\", localField: \"location\", foreignField: \"_id\", as: \"l\" } }, { $unwind: \"$l\" }, { $lookup: { from: \"Region\", localField: \"l.address.region\", foreignField: \"_id\", as: \"r\" } }, { $unwind: \"$r\" }, { $group: { _id: \"$r.name\", count: { $sum: 1 } } }])",
+    "mongo": "db.Foci.aggregate([{ $lookup: { from: \"Location\", localField: \"location\", foreignField: \"_id\", as: \"l\" } }, { $unwind: \"$l\" }, { $lookup: { from: \"Region\", localField: \"l.address.region\", foreignField: \"_id\", as: \"r\" } }, { $unwind: \"$r\" }, { $group: { _id: \"$r.name\", count: { $sum: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT r.name, COUNT(f._id) FROM Foci f JOIN Location l ON f.location = l._id JOIN Region r ON l.address.region = r._id GROUP BY r.name;"
+  },
+  {
+    "number": 68,
+    "description": "Случаи с данными о терапии",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Therapy\", localField: \"therapy\", foreignField: \"_id\", as: \"t\" } }, { $unwind: \"$t\" }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Therapy\", localField: \"therapy\", foreignField: \"_id\", as: \"t\" } }, { $unwind: \"$t\" }])",
+    "changed": false,
+    "original_sql": "SELECT i._id, t.hospitalization FROM Instances i JOIN Therapy t ON i.therapy = t._id;"
+  },
+  {
+    "number": 69,
+    "description": "Количество курсов терапии по степени тяжести",
+    "original": "db.Therapy.aggregate([{ $group: { _id: \"$severity\", count: { $sum: 1 } } }])",
+    "mongo": "db.Therapy.aggregate([{ $group: { _id: \"$severity\", count: { $sum: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT t.severity, COUNT(*) FROM Therapy t GROUP BY t.severity;"
+  },
+  {
+    "number": 70,
+    "description": "Количество курсов по влияющему фактору",
+    "original": "db.Therapy.aggregate([{ $group: { _id: \"$influence\", count: { $sum: 1 } } }])",
+    "mongo": "db.Therapy.aggregate([{ $group: { _id: \"$influence\", count: { $sum: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT t.influence, COUNT(*) FROM Therapy t GROUP BY t.influence;"
+  },
+  {
+    "number": 71,
+    "description": "Терапия с рецидивом и госпитализацией одновременно",
+    "original": "db.Therapy.find({ relapse: true, hospitalization: true })",
+    "mongo": "db.Therapy.find({ relapse: true, hospitalization: true })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy WHERE relapse = true AND hospitalization = true;"
+  },
+  {
+    "number": 72,
+    "description": "Средняя длительность терапии в днях (от date_start до сегодня)",
+    "original": "db.Therapy.aggregate([{ $project: { days: { $divide: [ { $subtract: [ new Date(), \"$date_start\" ] }, 86400000 ] } } }, { $group: { _id: null, avg_days: { $avg: \"$days\" } } }])",
+    "mongo": "db.Therapy.aggregate([{ $project: { days: { $divide: [ { $subtract: [ AS_OF, \"$date_start\" ] }, 86400000 ] } } }, { $group: { _id: null, avg_days: { $avg: \"$days\" } } }])",
+    "changed": true,
+    "original_sql": "SELECT AVG(DATEDIFF(CURRENT_DATE, date_start)) FROM Therapy;"
+  },
+  {
+    "number": 73,
+    "description": "Терапия без указания степени тяжести",
+    "original": "db.Therapy.find({ severity: { $in: [null] } })",
+    "mongo": "db.Therapy.find({ severity: { $in: [null] } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy WHERE severity IS NULL;"
+  },
+  {
+    "number": 74,
+    "description": "Терапия без привязки к пациенту",
+    "original": "db.Therapy.find({ patient: { $in: [null] } })",
+    "mongo": "db.Therapy.find({ patient: { $in: [null] } })",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy WHERE patient IS NULL;"
+  },
+  {
+    "number": 75,
+    "description": "Количество курсов с исходом «не спасён»",
+    "original": "db.Therapy.find({ \"result.Saved\": false }).count()",
+    "mongo": "db.Therapy.countDocuments({ \"result.Saved\": false })",
+    "changed": true,
+    "original_sql": "SELECT COUNT(*) FROM Therapy WHERE result.Saved = false;"
+  },
+  {
+    "number": 76,
+    "description": "Количество курсов с исходом «выздоровел»",
+    "original": "db.Therapy.find({ \"result.recovery\": true }).count()",
+    "mongo": "db.Therapy.countDocuments({ \"result.recovery\": true })",
+    "changed": true,
+    "original_sql": "SELECT COUNT(*) FROM Therapy WHERE result.recovery = true;"
+  },
+  {
+    "number": 77,
+    "description": "Курсы с зафиксированными побочными эффектами",
+    "original": "db.Therapy.find({ \"result.side_effect\": { $nin: [null, \"\"] } })",
+    "mongo": "db.Therapy.find({ \"result.side effect\": { $exists: true, $nin: [null, \"\"] } })",
+    "changed": true,
+    "original_sql": "SELECT * FROM Therapy WHERE result.side_effect IS NOT NULL;"
+  },
+  {
+    "number": 78,
+    "description": "Распределение курсов по количеству диагнозов в массиве",
+    "original": "db.Therapy.aggregate([{ $project: { n: { $size: { $ifNull: [ \"$diagnosis\", [] ] } } } }, { $group: { _id: \"$n\", count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "mongo": "db.Therapy.aggregate([{ $project: { n: { $size: { $ifNull: [ \"$diagnosis\", [] ] } } } }, { $group: { _id: \"$n\", count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "changed": false,
+    "original_sql": "SELECT SIZE(diagnosis), COUNT(*) FROM Therapy GROUP BY SIZE(diagnosis);"
+  },
+  {
+    "number": 79,
+    "description": "Средний возраст по полу",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$g.type\", avg_age: { $avg: \"$age\" } } }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$g.type\", avg_age: { $avg: \"$age\" } } }])",
+    "changed": true,
+    "original_sql": "SELECT g.type, AVG(p.age) FROM Pdtient p JOIN Gender g ON p.gender = g._id GROUP BY g.type;"
+  },
+  {
+    "number": 80,
+    "description": "Случаи заболеваний по месяцам",
+    "original": "db.Instances.aggregate([{ $group: { _id: { $dateToString: { format: \"%Y-%m\", date: \"$date\" } }, count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "mongo": "db.Instances.aggregate([{ $group: { _id: { $dateToString: { format: \"%Y-%m\", date: \"$date\" } }, count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "changed": false,
+    "original_sql": "SELECT YEAR(date), MONTH(date), COUNT(*) FROM Instances GROUP BY YEAR(date), MONTH(date);"
+  },
+  {
+    "number": 81,
+    "description": "Количество случаев по регионам (полная цепочка связей)",
+    "original": "db.Instances.aggregate([\n  { $lookup: { from: \"Foci\", localField: \"Focus_point\", foreignField: \"_id\", as: \"f\" } },\n  { $unwind: \"$f\" },\n  { $lookup: { from: \"Location\", localField: \"f.location\", foreignField: \"_id\", as: \"l\" } },\n  { $unwind: \"$l\" },\n  { $lookup: { from: \"Region\", localField: \"l.address.region\", foreignField: \"_id\", as: \"r\" } },\n  { $unwind: \"$r\" },\n  { $group: { _id: \"$r.name\", count: { $sum: 1 } } }\n])",
+    "mongo": "db.Instances.aggregate([\n  { $lookup: { from: \"Foci\", localField: \"instance\", foreignField: \"id_instance\", as: \"f\" } },\n  { $unwind: \"$f\" },\n  { $lookup: { from: \"Location\", localField: \"f.location\", foreignField: \"_id\", as: \"l\" } },\n  { $unwind: \"$l\" },\n  { $lookup: { from: \"Region\", localField: \"l.address.region\", foreignField: \"_id\", as: \"r\" } },\n  { $unwind: \"$r\" },\n  { $group: { _id: \"$r.name\", count: { $sum: 1 } } }\n])",
+    "changed": true,
+    "original_sql": "SELECT r.name, COUNT(i._id) FROM Instances i JOIN Foci f ON i.Focus_point = f._id JOIN Location l ON f.location = l._id JOIN Region r ON l.address.region = r._id GROUP BY r.name;"
+  },
+  {
+    "number": 82,
+    "description": "Топ-10 регионов по числу случаев",
+    "original": "db.Instances.aggregate([\n  { $lookup: { from: \"Foci\", localField: \"Focus_point\", foreignField: \"_id\", as: \"f\" } },\n  { $unwind: \"$f\" },\n  { $lookup: { from: \"Location\", localField: \"f.location\", foreignField: \"_id\", as: \"l\" } },\n  { $unwind: \"$l\" },\n  { $lookup: { from: \"Region\", localField: \"l.address.region\", foreignField: \"_id\", as: \"r\" } },\n  { $unwind: \"$r\" },\n  { $group: { _id: \"$r.name\", count: { $sum: 1 } } },\n  { $sort: { count: -1 } },\n  { $limit: 10 }\n])",
+    "mongo": "db.Instances.aggregate([\n  { $lookup: { from: \"Foci\", localField: \"instance\", foreignField: \"id_instance\", as: \"f\" } },\n  { $unwind: \"$f\" },\n  { $lookup: { from: \"Location\", localField: \"f.location\", foreignField: \"_id\", as: \"l\" } },\n  { $unwind: \"$l\" },\n  { $lookup: { from: \"Region\", localField: \"l.address.region\", foreignField: \"_id\", as: \"r\" } },\n  { $unwind: \"$r\" },\n  { $group: { _id: \"$r.name\", count: { $sum: 1 } } },\n  { $sort: { count: -1 } },\n  { $limit: 10 }\n])",
+    "changed": true,
+    "original_sql": "SELECT r.name, COUNT(i._id) AS c FROM Instances i JOIN Foci f ON i.Focus_point = f._id JOIN Location l ON f.location = l._id JOIN Region r ON l.address.region = r._id GROUP BY r.name ORDER BY c DESC LIMIT 10;"
+  },
+  {
+    "number": 83,
+    "description": "Средний возраст госпитализированных по социальным группам",
+    "original": "db.Instances.aggregate([\n  { $lookup: { from: \"Therapy\", localField: \"therapy\", foreignField: \"_id\", as: \"t\" } },\n  { $unwind: \"$t\" },\n  { $match: { \"t.hospitalization\": true } },\n  { $lookup: { from: \"Pdtient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } },\n  { $unwind: \"$p\" },\n  { $lookup: { from: \"Social_group\", localField: \"p.social_group\", foreignField: \"_id\", as: \"s\" } },\n  { $unwind: \"$s\" },\n  { $group: { _id: \"$s.type\", avg_age: { $avg: \"$p.age\" } } }\n])",
+    "mongo": "db.Instances.aggregate([\n  { $lookup: { from: \"Therapy\", localField: \"therapy\", foreignField: \"_id\", as: \"t\" } },\n  { $unwind: \"$t\" },\n  { $match: { \"t.hospitalization\": true } },\n  { $lookup: { from: \"Patient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } },\n  { $unwind: \"$p\" },\n  { $lookup: { from: \"Social_group\", localField: \"p.social_group\", foreignField: \"_id\", as: \"s\" } },\n  { $unwind: \"$s\" },\n  { $group: { _id: \"$s.type\", avg_age: { $avg: \"$p.age\" } } }\n])",
+    "changed": true,
+    "original_sql": "SELECT s.type, AVG(p.age) FROM Pdtient p JOIN Social_group s ON p.social_group = s._id JOIN Instances i ON i.patient = p._id JOIN Therapy t ON i.therapy = t._id WHERE t.hospitalization = true GROUP BY s.type;"
+  },
+  {
+    "number": 84,
+    "description": "Количество случаев по типам приёма",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Reception\", localField: \"reception\", foreignField: \"_id\", as: \"r\" } }, { $unwind: \"$r\" }, { $group: { _id: \"$r.type\", count: { $sum: 1 } } }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Reception\", localField: \"reception\", foreignField: \"_id\", as: \"r\" } }, { $unwind: \"$r\" }, { $group: { _id: \"$r.type\", count: { $sum: 1 } } }])",
+    "changed": false,
+    "original_sql": "SELECT r.type, COUNT(*) FROM Instances i JOIN Reception r ON i.reception = r._id GROUP BY r.type;"
+  },
+  {
+    "number": 85,
+    "description": "Доля рецидивов по степеням тяжести",
+    "original": "db.Therapy.aggregate([{ $lookup: { from: \"Severity\", localField: \"severity\", foreignField: \"_id\", as: \"sv\" } }, { $unwind: \"$sv\" }, { $group: { _id: \"$sv.degree\", relapse_rate: { $avg: { $cond: [ \"$relapse\", 1, 0 ] } } } }])",
+    "mongo": "db.Therapy.aggregate([{ $lookup: { from: \"Severity\", localField: \"severity\", foreignField: \"_id\", as: \"sv\" } }, { $unwind: \"$sv\" }, { $group: { _id: \"$sv.degree\", relapse_rate: { $avg: { $cond: [ \"$relapse\", 1, 0 ] } } } }])",
+    "changed": false,
+    "original_sql": "SELECT sv.degree, AVG(t.relapse::int) FROM Therapy t JOIN Severity sv ON t.severity = sv._id GROUP BY sv.degree;"
+  },
+  {
+    "number": 86,
+    "description": "Распределение пациентов по возрастным группам",
+    "original": "db.Pdtient.aggregate([{ $bucket: { groupBy: \"$age\", boundaries: [0, 18, 40, 60, 200], default: \"без возраста\", output: { count: { $sum: 1 } } } }])",
+    "mongo": "db.Patient.aggregate([{ $bucket: { groupBy: \"$age\", boundaries: [0, 18, 40, 60, 200], default: \"без возраста\", output: { count: { $sum: 1 } } } }])",
+    "changed": true,
+    "original_sql": "SELECT CASE WHEN age < 18 THEN 'до 18' WHEN age < 40 THEN '18–39' WHEN age < 60 THEN '40–59' ELSE '60+' END AS grp, COUNT(*) FROM Pdtient GROUP BY grp;"
+  },
+  {
+    "number": 87,
+    "description": "Количество случаев по полам пациентов",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Pdtient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $unwind: \"$p\" }, { $lookup: { from: \"Gender\", localField: \"p.gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$g.type\", count: { $sum: 1 } } }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Patient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $unwind: \"$p\" }, { $lookup: { from: \"Gender\", localField: \"p.gender\", foreignField: \"_id\", as: \"g\" } }, { $unwind: \"$g\" }, { $group: { _id: \"$g.type\", count: { $sum: 1 } } }])",
+    "changed": true,
+    "original_sql": "SELECT g.type, COUNT(i._id) FROM Instances i JOIN Pdtient p ON i.patient = p._id JOIN Gender g ON p.gender = g._id GROUP BY g.type;"
+  },
+  {
+    "number": 88,
+    "description": "Топ-10 хронических заболеваний среди пациентов",
+    "original": "db.Pdtient.aggregate([{ $group: { _id: \"$medical_record.chronic_disease\", count: { $sum: 1 } } }, { $sort: { count: -1 } }, { $limit: 10 }])",
+    "mongo": "db.Patient.aggregate([{ $group: { _id: \"$medical_record.chronic_diseases\", count: { $sum: 1 } } }, { $sort: { count: -1 } }, { $limit: 10 }])",
+    "changed": true,
+    "original_sql": "SELECT medical_record.chronic_disease, COUNT(*) AS c FROM Pdtient GROUP BY medical_record.chronic_disease ORDER BY c DESC LIMIT 10;"
+  },
+  {
+    "number": 89,
+    "description": "Среднее количество случаев на один очаг",
+    "original": "db.Instances.aggregate([{ $group: { _id: \"$Focus_point\", n: { $sum: 1 } } }, { $group: { _id: null, avg_per_focus: { $avg: \"$n\" } } }])",
+    "mongo": "db.Foci.aggregate([{$lookup:{from:\"Instances\",localField:\"id_instance\",foreignField:\"instance\",as:\"i\"}},{$group:{_id:null,avg_per_focus:{$avg:{$size:\"$i\"}}}}])",
+    "changed": true,
+    "original_sql": "SELECT AVG(c) FROM (SELECT COUNT(*) AS c FROM Instances GROUP BY Focus_point) t;"
+  },
+  {
+    "number": 90,
+    "description": "Новые пациенты по месяцам регистрации",
+    "original": "db.Pdtient.aggregate([{ $group: { _id: { $dateToString: { format: \"%Y-%m\", date: \"$reg_date\" } }, count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "mongo": "db.Patient.aggregate([{ $group: { _id: { $dateToString: { format: \"%Y-%m\", date: \"$reg_date\" } }, count: { $sum: 1 } } }, { $sort: { _id: 1 } }])",
+    "changed": true,
+    "original_sql": "SELECT YEAR(reg_date), MONTH(reg_date), COUNT(*) FROM Pdtient GROUP BY YEAR(reg_date), MONTH(reg_date);"
+  },
+  {
+    "number": 91,
+    "description": "Instances со «висячей» ссылкой на пациента",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Pdtient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $match: { p: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Patient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $match: { p: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": true,
+    "original_sql": "SELECT * FROM Instances i LEFT JOIN Pdtient p ON i.patient = p._id WHERE p._id IS NULL;"
+  },
+  {
+    "number": 92,
+    "description": "Instances со «висячей» ссылкой на терапию",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Therapy\", localField: \"therapy\", foreignField: \"_id\", as: \"t\" } }, { $match: { t: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Therapy\", localField: \"therapy\", foreignField: \"_id\", as: \"t\" } }, { $match: { t: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": false,
+    "original_sql": "SELECT * FROM Instances i LEFT JOIN Therapy t ON i.therapy = t._id WHERE t._id IS NULL;"
+  },
+  {
+    "number": 93,
+    "description": "Instances со «висячей» ссылкой на тип приёма",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Reception\", localField: \"reception\", foreignField: \"_id\", as: \"r\" } }, { $match: { r: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Instances.aggregate([{ $lookup: { from: \"Reception\", localField: \"reception\", foreignField: \"_id\", as: \"r\" } }, { $match: { r: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": false,
+    "original_sql": "SELECT * FROM Instances i LEFT JOIN Reception r ON i.reception = r._id WHERE r._id IS NULL;"
+  },
+  {
+    "number": 94,
+    "description": "Therapy со «висячей» ссылкой на пациента",
+    "original": "db.Therapy.aggregate([{ $lookup: { from: \"Pdtient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $match: { p: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Therapy.aggregate([{ $lookup: { from: \"Patient\", localField: \"patient\", foreignField: \"_id\", as: \"p\" } }, { $match: { p: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": true,
+    "original_sql": "SELECT * FROM Therapy t LEFT JOIN Pdtient p ON t.patient = p._id WHERE p._id IS NULL;"
+  },
+  {
+    "number": 95,
+    "description": "Pdtient со «висячей» ссылкой на пол",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $match: { g: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Gender\", localField: \"gender\", foreignField: \"_id\", as: \"g\" } }, { $match: { g: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient p LEFT JOIN Gender g ON p.gender = g._id WHERE g._id IS NULL;"
+  },
+  {
+    "number": 96,
+    "description": "Pdtient со «висячей» ссылкой на социальную группу",
+    "original": "db.Pdtient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $match: { s: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Patient.aggregate([{ $lookup: { from: \"Social_group\", localField: \"social_group\", foreignField: \"_id\", as: \"s\" } }, { $match: { s: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": true,
+    "original_sql": "SELECT * FROM Pdtient p LEFT JOIN Social_group s ON p.social_group = s._id WHERE s._id IS NULL;"
+  },
+  {
+    "number": 97,
+    "description": "Foci со «висячей» ссылкой на локацию",
+    "original": "db.Foci.aggregate([{ $lookup: { from: \"Location\", localField: \"location\", foreignField: \"_id\", as: \"l\" } }, { $match: { l: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Foci.aggregate([{ $lookup: { from: \"Location\", localField: \"location\", foreignField: \"_id\", as: \"l\" } }, { $match: { l: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": false,
+    "original_sql": "SELECT * FROM Foci f LEFT JOIN Location l ON f.location = l._id WHERE l._id IS NULL;"
+  },
+  {
+    "number": 98,
+    "description": "Локации со «висячей» ссылкой на геоданные",
+    "original": "db.Location.aggregate([{ $lookup: { from: \"Geodata\", localField: \"address.geodata\", foreignField: \"_id\", as: \"g\" } }, { $match: { g: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Location.aggregate([{ $lookup: { from: \"Geodata\", localField: \"address.geodata\", foreignField: \"_id\", as: \"g\" } }, { $match: { g: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": false,
+    "original_sql": "SELECT * FROM Location l LEFT JOIN Geodata g ON l.address.geodata = g._id WHERE g._id IS NULL;"
+  },
+  {
+    "number": 99,
+    "description": "Therapy со «висячей» ссылкой на степень тяжести",
+    "original": "db.Therapy.aggregate([{ $lookup: { from: \"Severity\", localField: \"severity\", foreignField: \"_id\", as: \"sv\" } }, { $match: { sv: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Therapy.aggregate([{ $lookup: { from: \"Severity\", localField: \"severity\", foreignField: \"_id\", as: \"sv\" } }, { $match: { sv: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "changed": false,
+    "original_sql": "SELECT * FROM Therapy t LEFT JOIN Severity sv ON t.severity = sv._id WHERE sv._id IS NULL;"
+  },
+  {
+    "number": 100,
+    "description": "Instances со «висячей» ссылкой на очаг",
+    "original": "db.Instances.aggregate([{ $lookup: { from: \"Foci\", localField: \"Focus_point\", foreignField: \"_id\", as: \"f\" } }, { $match: { f: { $size: 0 } } }, { $count: \"orphans\" }])",
+    "mongo": "db.Instances.aggregate([{$lookup:{from:\"Foci\",localField:\"instance\",foreignField:\"id_instance\",as:\"f\"}},{$match:{f:{$size:0}}},{$count:\"orphans\"}])",
+    "changed": true,
+    "original_sql": "SELECT * FROM Instances i LEFT JOIN Foci f ON i.Focus_point = f._id WHERE f._id IS NULL;"
+  }
+]

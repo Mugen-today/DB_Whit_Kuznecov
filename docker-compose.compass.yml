@@ -1,0 +1,7 @@
+services:
+  storage:
+    networks:
+      - storage_net
+      - app_net
+    ports:
+      - "127.0.0.1:27018:27017"

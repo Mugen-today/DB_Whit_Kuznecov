@@ -1,0 +1,138 @@
+[
+  {
+    "mode": "overview",
+    "project_version": "0.9.0",
+    "limit": 500,
+    "seconds": [
+      1.0296147579999797,
+      0.995561700000053,
+      1.0238538680000602
+    ],
+    "median_seconds": 1.0238538680000602,
+    "peak_python_bytes": 23554045,
+    "commands": [
+      114,
+      114,
+      114
+    ],
+    "mongo_reply_bson_bytes": 134827834,
+    "rows": 4000,
+    "pages": 8,
+    "sha256": "3aa1178ba875be6b34f21854d7ec481281ab82c55d021b0abd9f9881a18cb6c3"
+  },
+  {
+    "mode": "overview",
+    "project_version": "0.10.0",
+    "limit": 500,
+    "seconds": [
+      0.941938650000111,
+      0.9518244670000513,
+      1.0182201059999443
+    ],
+    "median_seconds": 0.9518244670000513,
+    "peak_python_bytes": 4140773,
+    "commands": [
+      114,
+      114,
+      114
+    ],
+    "mongo_reply_bson_bytes": 1762056,
+    "rows": 4000,
+    "pages": 8,
+    "sha256": "3aa1178ba875be6b34f21854d7ec481281ab82c55d021b0abd9f9881a18cb6c3"
+  },
+  {
+    "mode": "geometry",
+    "project_version": "0.9.0",
+    "limit": 500,
+    "seconds": [
+      0.16104482800005826,
+      0.13394221100020332,
+      0.17053450699995665
+    ],
+    "median_seconds": 0.16104482800005826,
+    "peak_python_bytes": 2051448,
+    "commands": [
+      0,
+      0,
+      0
+    ],
+    "mongo_reply_bson_bytes": 0,
+    "rows": 1000,
+    "sha256": "80efea6159632fc10b1ff29dc7b221731ccae3aa37c6da831ce59b15906d6d58"
+  },
+  {
+    "mode": "geometry",
+    "project_version": "0.10.0",
+    "limit": 500,
+    "seconds": [
+      0.03396252900006402,
+      0.038607238999929905,
+      0.04650923999997758
+    ],
+    "median_seconds": 0.038607238999929905,
+    "peak_python_bytes": 2049640,
+    "commands": [
+      0,
+      0,
+      0
+    ],
+    "mongo_reply_bson_bytes": 0,
+    "rows": 1000,
+    "sha256": "80efea6159632fc10b1ff29dc7b221731ccae3aa37c6da831ce59b15906d6d58"
+  },
+  {
+    "mode": "validation",
+    "project_version": "0.9.0",
+    "limit": 500,
+    "seconds": [
+      1.2974532360001376,
+      1.186690297000041,
+      1.0997878639998362
+    ],
+    "median_seconds": 1.186690297000041,
+    "peak_python_bytes": 4512186,
+    "commands": [
+      2013,
+      2013,
+      2013
+    ],
+    "mongo_reply_bson_bytes": 441401,
+    "rows": 1003,
+    "valid_rows": 1003
+  },
+  {
+    "mode": "validation",
+    "project_version": "0.10.0",
+    "limit": 500,
+    "seconds": [
+      0.8156399049998981,
+      0.8058093800000279,
+      0.8359426090000852
+    ],
+    "median_seconds": 0.8156399049998981,
+    "peak_python_bytes": 4510218,
+    "commands": [
+      1015,
+      1015,
+      1015
+    ],
+    "mongo_reply_bson_bytes": 209865,
+    "rows": 1003,
+    "valid_rows": 1003
+  },
+  {
+    "mode": "qgis",
+    "project_version": "0.9.0",
+    "rows": 40000,
+    "seconds": 0.22917960299992046,
+    "peak_rss_kib": 235164
+  },
+  {
+    "mode": "qgis",
+    "project_version": "0.10.0",
+    "rows": 40000,
+    "seconds": 0.19263046500009295,
+    "peak_rss_kib": 212796
+  }
+]

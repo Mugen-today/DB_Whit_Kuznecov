@@ -1,0 +1,357 @@
+{
+  "sha256": "a576414b4d5157c3a209edf94be89c8c2e6de102d9cc20ad0c842c4856fd7fce",
+  "namespace": "test-dataset-a",
+  "mode": "apply",
+  "rows": {
+    "test_dataset_a____2024": 37662,
+    "Instances": 37662,
+    "Patient": 37662,
+    "Therapy": 16,
+    "Severity": 4,
+    "Influence": 3,
+    "Gender": 2,
+    "Social_group": 11,
+    "Reception": 0,
+    "Foci": 0,
+    "Location": 14256,
+    "Geodata": 14233,
+    "Region": 160,
+    "Municipality": 160,
+    "Settlement": 0,
+    "Street": 0,
+    "Building": 0,
+    "Placement": 0
+  },
+  "documents": {
+    "Gender": 2,
+    "Geodata": 14233,
+    "Influence": 3,
+    "Instances": 37662,
+    "Location": 14256,
+    "Municipality": 160,
+    "Patient": 37662,
+    "Region": 61,
+    "Severity": 4,
+    "Social_group": 11
+  },
+  "issues": {
+    "formula: using Excel cached value; source formula archived": 37661,
+    "missing identifier; raw only": 16,
+    "ambiguous Region.municipality omitted": 99
+  },
+  "examples": [
+    {
+      "sheet": "Patient",
+      "row": 2,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 3,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 4,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 5,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 6,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 7,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 8,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 9,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 10,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 11,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 12,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 13,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 14,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 15,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 16,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 17,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 18,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 19,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 20,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 21,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 22,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 23,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 24,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 25,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 26,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 27,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 28,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 29,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 30,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 31,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 32,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 33,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 34,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 35,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 36,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 37,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 38,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 39,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 40,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 41,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 42,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 43,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 44,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 45,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 46,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 47,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 48,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 49,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 50,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 51,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 52,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 53,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 54,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 55,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 56,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 57,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 58,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 59,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 60,
+      "issue": "formula: using Excel cached value; source formula archived"
+    },
+    {
+      "sheet": "Patient",
+      "row": 61,
+      "issue": "formula: using Excel cached value; source formula archived"
+    }
+  ],
+  "inserted": {
+    "cases": 141831,
+    "Gender": 2,
+    "Geodata": 14233,
+    "Influence": 3,
+    "Instances": 37662,
+    "Location": 14256,
+    "Municipality": 160,
+    "Patient": 37662,
+    "Region": 61,
+    "Severity": 4,
+    "Social_group": 11
+  }
+}

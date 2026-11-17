@@ -1,0 +1,934 @@
+{
+  "collections": {
+    "Schema.Instances": {
+      "ns": "Schema.Instances",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "reception": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "patient": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "therapy": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "Other": {
+            "bsonType": [
+              "string"
+            ]
+          },
+          "date": {
+            "bsonType": [
+              "date"
+            ]
+          },
+          "instance": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "instance"
+        ]
+      }
+    },
+    "Schema.Region": {
+      "ns": "Schema.Region",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "name": {
+            "bsonType": "string"
+          },
+          "municipality": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Municipality": {
+      "ns": "Schema.Municipality",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "name": {
+            "bsonType": "string"
+          },
+          "settlement": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Settlement": {
+      "ns": "Schema.Settlement",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "name": {
+            "bsonType": "string"
+          },
+          "type": {
+            "bsonType": "string"
+          },
+          "street": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Street": {
+      "ns": "Schema.Street",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "name": {
+            "bsonType": "string"
+          },
+          "building": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Building": {
+      "ns": "Schema.Building",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "house": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "corpus": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "edificate": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "fraction": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "letters": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "placement": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Placement": {
+      "ns": "Schema.Placement",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "number": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Reception": {
+      "ns": "Schema.Reception",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "type": {
+            "bsonType": "string"
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Geodata": {
+      "ns": "Schema.Geodata",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "Longitude": {
+            "bsonType": [
+              "double"
+            ]
+          },
+          "Latitude": {
+            "bsonType": [
+              "double"
+            ]
+          },
+          "Elevation": {
+            "bsonType": [
+              "double"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          },
+          "geometry": {
+            "bsonType": "object",
+            "required": [
+              "type",
+              "coordinates"
+            ],
+            "properties": {
+              "type": {
+                "enum": [
+                  "Point"
+                ]
+              },
+              "coordinates": {
+                "bsonType": "array",
+                "minItems": 2,
+                "maxItems": 2,
+                "items": {
+                  "bsonType": [
+                    "double",
+                    "int"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Patient": {
+      "ns": "Schema.Patient",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "passport": {
+            "bsonType": [
+              "string",
+              "int"
+            ]
+          },
+          "age": {
+            "bsonType": [
+              "int"
+            ]
+          },
+          "gender": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "social_group": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "reg_date": {
+            "bsonType": [
+              "date"
+            ]
+          },
+          "medical_record": {
+            "bsonType": "object",
+            "properties": {
+              "chronic_diseases": {
+                "bsonType": [
+                  "regex"
+                ]
+              },
+              "vaccine": {
+                "bsonType": [
+                  "regex"
+                ]
+              }
+            },
+            "required": []
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Gender": {
+      "ns": "Schema.Gender",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "type": {
+            "bsonType": "string"
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Social_group": {
+      "ns": "Schema.Social_group",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "type": {
+            "bsonType": "string"
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Therapy": {
+      "ns": "Schema.Therapy",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "patient": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "date_start": {
+            "bsonType": [
+              "date"
+            ]
+          },
+          "diagnosis": {
+            "bsonType": "array",
+            "items": {}
+          },
+          "severity": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "influence": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "factor": {
+            "bsonType": [
+              "regex"
+            ]
+          },
+          "symptom": {
+            "bsonType": [
+              "regex"
+            ]
+          },
+          "hospitalization": {
+            "bsonType": [
+              "bool"
+            ]
+          },
+          "treatment_procedures": {
+            "bsonType": [
+              "regex"
+            ]
+          },
+          "relapse": {
+            "bsonType": [
+              "bool"
+            ]
+          },
+          "effect_treatment": {
+            "bsonType": "array",
+            "items": {}
+          },
+          "result": {
+            "bsonType": "object",
+            "properties": {
+              "Saved": {
+                "bsonType": [
+                  "bool"
+                ]
+              },
+              "recovery": {
+                "bsonType": [
+                  "bool"
+                ]
+              },
+              "side effect": {
+                "bsonType": [
+                  "regex"
+                ]
+              }
+            },
+            "required": []
+          },
+          "other": {
+            "bsonType": "string"
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Severity": {
+      "ns": "Schema.Severity",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "degree": {
+            "bsonType": "string"
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Influence": {
+      "ns": "Schema.Influence",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "name": {
+            "bsonType": "string"
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Foci": {
+      "ns": "Schema.Foci",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "location": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "id_instance": {
+            "bsonType": [
+              "objectId"
+            ]
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    },
+    "Schema.Location": {
+      "ns": "Schema.Location",
+      "jsonSchema": {
+        "bsonType": "object",
+        "properties": {
+          "_id": {
+            "bsonType": "objectId"
+          },
+          "address": {
+            "bsonType": "object",
+            "properties": {
+              "region": {
+                "bsonType": [
+                  "objectId"
+                ]
+              },
+              "geodata": {
+                "bsonType": [
+                  "objectId"
+                ]
+              }
+            },
+            "required": []
+          },
+          "_owner_id": {
+            "bsonType": "string"
+          }
+        },
+        "required": [
+          "_id"
+        ]
+      }
+    }
+  },
+  "relationships": [
+    {
+      "id": "725c766b-d046-46ef-863d-03668bcc6c3b",
+      "relationship": [
+        {
+          "ns": "Schema.Municipality",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Region",
+          "cardinality": null,
+          "fields": [
+            "municipality"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "1eade5bf-c938-4fb9-8287-5e6489c80a8d",
+      "relationship": [
+        {
+          "ns": "Schema.Settlement",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Municipality",
+          "cardinality": null,
+          "fields": [
+            "settlement"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "164d7c08-9dab-451a-b632-530c1d6e695d",
+      "relationship": [
+        {
+          "ns": "Schema.Street",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Settlement",
+          "cardinality": null,
+          "fields": [
+            "street"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "95a1476d-4240-4df9-995e-620fc7a3183a",
+      "relationship": [
+        {
+          "ns": "Schema.Building",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Street",
+          "cardinality": null,
+          "fields": [
+            "building"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "a9224ddf-9c09-490d-a653-8e588917cef9",
+      "relationship": [
+        {
+          "ns": "Schema.Placement",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Building",
+          "cardinality": null,
+          "fields": [
+            "placement"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "d19c50dc-2d35-4c3a-a8b0-ffb8a4d6e0e2",
+      "relationship": [
+        {
+          "ns": "Schema.Reception",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Instances",
+          "cardinality": null,
+          "fields": [
+            "reception"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "5cc31a42-71cf-46e8-b7e5-e790eb3dfc09",
+      "relationship": [
+        {
+          "ns": "Schema.Patient",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Instances",
+          "cardinality": null,
+          "fields": [
+            "patient"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "d35d6a42-c342-4bc0-b162-cbf36e76b4d6",
+      "relationship": [
+        {
+          "ns": "Schema.Gender",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Patient",
+          "cardinality": null,
+          "fields": [
+            "gender"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "36440bb0-0365-49eb-a4c5-308b98ff9b0f",
+      "relationship": [
+        {
+          "ns": "Schema.Social_group",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Patient",
+          "cardinality": null,
+          "fields": [
+            "social_group"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "d8b51d70-5bf9-4abf-9af8-2304de517842",
+      "relationship": [
+        {
+          "ns": "Schema.Patient",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Therapy",
+          "cardinality": null,
+          "fields": [
+            "patient"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "50567b89-3dcb-4cbf-ae1c-f55f75f22e7d",
+      "relationship": [
+        {
+          "ns": "Schema.Instances",
+          "cardinality": 1,
+          "fields": [
+            "therapy"
+          ]
+        },
+        {
+          "ns": "Schema.Therapy",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "8522aefa-fb98-4b61-99a7-a6203184dd31",
+      "relationship": [
+        {
+          "ns": "Schema.Severity",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Therapy",
+          "cardinality": null,
+          "fields": [
+            "severity"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "1940007c-a20a-4dda-b8d8-31ab50be12ac",
+      "relationship": [
+        {
+          "ns": "Schema.Influence",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Therapy",
+          "cardinality": null,
+          "fields": [
+            "influence"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "7237e979-19b4-450b-ba63-3ce1bfe6e496",
+      "relationship": [
+        {
+          "ns": "Schema.Instances",
+          "cardinality": null,
+          "fields": [
+            "instance"
+          ]
+        },
+        {
+          "ns": "Schema.Foci",
+          "cardinality": 1,
+          "fields": [
+            "id_instance"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "ae50c381-5902-4032-8d7f-c6c015211c7b",
+      "relationship": [
+        {
+          "ns": "Schema.Region",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Location",
+          "cardinality": null,
+          "fields": [
+            "address",
+            "address.region"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "5832ee28-571e-4ab8-bfd5-6ad667f9de3c",
+      "relationship": [
+        {
+          "ns": "Schema.Geodata",
+          "cardinality": 1,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Location",
+          "cardinality": 1,
+          "fields": [
+            "address",
+            "address.geodata"
+          ]
+        }
+      ],
+      "isInferred": false
+    },
+    {
+      "id": "9279fda3-154c-4427-b879-73ee13122db0",
+      "relationship": [
+        {
+          "ns": "Schema.Location",
+          "cardinality": null,
+          "fields": [
+            "_id"
+          ]
+        },
+        {
+          "ns": "Schema.Foci",
+          "cardinality": 1,
+          "fields": [
+            "location"
+          ]
+        }
+      ],
+      "isInferred": false
+    }
+  ]
+}
